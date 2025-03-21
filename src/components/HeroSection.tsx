@@ -1,5 +1,5 @@
 
-import { ArrowRight, Building, Tools, Timer, CheckCircle } from 'lucide-react';
+import { ArrowRight, Building, Wrench, Timer, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import AnimatedIcon from './AnimatedIcon';
 
@@ -114,7 +114,7 @@ const HeroSection = () => {
             
             {/* Floating UI elements */}
             <AnimatedIcon 
-              icon={<Tools size={24} className="text-blue-600" />}
+              icon={<Wrench size={24} className="text-blue-600" />}
               className="absolute -left-4 top-1/4"
               animation="float"
               delay={200}
