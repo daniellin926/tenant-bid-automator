@@ -50,57 +50,6 @@ const HeroSection = () => {
             <div className="relative w-full max-w-lg rounded-2xl shadow-glass overflow-hidden animate-slide-in-right backdrop-blur-sm">
               <div className="aspect-[9/16] relative bg-white rounded-2xl overflow-hidden shadow-subtle">
                 <div className="absolute inset-0 bg-gradient-to-b from-gray-50 to-white"></div>
-                
-                {/* App UI mockup content */}
-                <div className="absolute inset-0 flex flex-col p-4">
-                  <div className="flex justify-between items-center pb-4">
-                    <div>
-                      <h3 className="font-semibold text-gray-900">Maintenance Dashboard</h3>
-                      <p className="text-xs text-gray-500">Property Manager View</p>
-                    </div>
-                    <div className="w-8 h-8 rounded-full bg-gray-100"></div>
-                  </div>
-                  
-                  <div className="mt-2 flex flex-col space-y-3">
-                    {/* Status cards */}
-                    <div className="grid grid-cols-2 gap-3">
-                      <div className="bg-blue-50 p-3 rounded-xl">
-                        <p className="text-xs text-blue-700">New Requests</p>
-                        <p className="text-xl font-bold text-blue-900">12</p>
-                      </div>
-                      <div className="bg-amber-50 p-3 rounded-xl">
-                        <p className="text-xs text-amber-700">Pending Bids</p>
-                        <p className="text-xl font-bold text-amber-900">8</p>
-                      </div>
-                    </div>
-                    
-                    {/* Request items */}
-                    <div className="mt-4">
-                      <h4 className="text-sm font-medium text-gray-700 mb-2">Recent Requests</h4>
-                      <div className="space-y-2">
-                        {[
-                          { title: "Leaking Faucet", status: "Scheduled", unit: "Apt 304" },
-                          { title: "HVAC Repair", status: "Bidding", unit: "Apt 201" },
-                          { title: "Broken Window", status: "New", unit: "Apt 115" },
-                        ].map((item, i) => (
-                          <div key={i} className="p-3 bg-white rounded-lg shadow-sm border border-gray-100 flex justify-between items-center">
-                            <div>
-                              <p className="font-medium text-sm">{item.title}</p>
-                              <p className="text-xs text-gray-500">{item.unit}</p>
-                            </div>
-                            <span className={`text-xs px-2 py-1 rounded-full ${
-                              item.status === "Scheduled" ? "bg-green-100 text-green-800" :
-                              item.status === "Bidding" ? "bg-amber-100 text-amber-800" :
-                              "bg-blue-100 text-blue-800"
-                            }`}>
-                              {item.status}
-                            </span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
