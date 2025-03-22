@@ -1,4 +1,3 @@
-
 import { useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, CheckCircle } from 'lucide-react';
@@ -61,13 +60,10 @@ const CTASection = () => {
                 ))}
               </div>
               
-              <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+              <div>
                 <Button className="rounded-full py-6 px-8 text-base bg-primary hover:bg-primary/90 transition-all shadow-md hover:shadow-lg group">
                   Start Your Free Trial
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                </Button>
-                <Button variant="outline" className="rounded-full py-6 px-8 text-base">
-                  Schedule Demo
                 </Button>
               </div>
             </div>
