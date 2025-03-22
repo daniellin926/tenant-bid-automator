@@ -65,7 +65,7 @@ const Features = () => {
 
   return (
     <PageTemplate 
-      title="Welcome to MAINTENANTS"
+      title="Welcome to mAIntenants"
       subtitle="Our AI-powered maintenance management platform"
     >
       {/* Bidding System Section */}
@@ -393,7 +393,7 @@ const Features = () => {
             <div className="mb-6">
               <h2 className="text-2xl font-semibold mb-4">Instant Notifications, Faster Resolutions</h2>
               <p className="text-gray-600 mb-4">
-                MAINTENANTS's communication system ensures that every stakeholder stays informed
+                m<span className="text-primary font-bold">AI</span>ntenants's communication system ensures that every stakeholder stays informed
                 throughout the maintenance process. Landlords receive instant notifications about new
                 requests with the ability to approve or deny with a single tap.
               </p>

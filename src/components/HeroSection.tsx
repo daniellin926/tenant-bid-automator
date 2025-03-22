@@ -45,7 +45,7 @@ const HeroSection = () => {
                 ))}
               </div>
               <div className="text-sm text-gray-500">
-                <span className="font-semibold text-gray-700">800+ properties</span> are managing maintenance with mAIntenants
+                <span className="font-semibold text-gray-700">800+ properties</span> are managing maintenance with <span className="font-medium">m<span className="text-primary font-bold">AI</span>ntenants</span>
               </div>
             </div>
           </div>
