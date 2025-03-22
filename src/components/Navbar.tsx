@@ -1,8 +1,17 @@
 
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { Link } from 'react-router-dom';
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -32,29 +41,174 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <div className="flex items-center space-x-1">
-          <div className="w-8 h-8 rounded-md bg-primary flex items-center justify-center">
-            <span className="text-white font-bold">TB</span>
-          </div>
-          <span className={cn(
-            "font-medium text-lg transition-colors", 
-            isScrolled ? "text-gray-900" : "text-gray-800"
-          )}>
-            TenantBid
-          </span>
+          <Link to="/" className="flex items-center space-x-1">
+            <div className="w-8 h-8 rounded-md bg-primary flex items-center justify-center">
+              <span className="text-white font-bold">TB</span>
+            </div>
+            <span className={cn(
+              "font-medium text-lg transition-colors", 
+              isScrolled ? "text-gray-900" : "text-gray-800"
+            )}>
+              TenantBid
+            </span>
+          </Link>
         </div>
         
-        {/* Desktop navigation */}
+        {/* Desktop navigation with dropdowns */}
         <div className="hidden md:flex items-center space-x-8">
-          <NavLink href="#features" isScrolled={isScrolled}>Features</NavLink>
-          <NavLink href="#process" isScrolled={isScrolled}>How It Works</NavLink>
-          <NavLink href="#pricing" isScrolled={isScrolled}>Pricing</NavLink>
+          <NavigationMenu>
+            <NavigationMenuList>
+              <NavigationMenuItem>
+                <NavigationMenuTrigger className={cn(
+                  "text-sm font-medium group transition-colors",
+                  isScrolled ? "text-gray-800" : "text-gray-700"
+                )}>Features</NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid w-[400px] gap-3 p-4 md:grid-cols-2">
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link to="/features/request-system" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Request System</div>
+                          <p className="text-sm leading-snug text-muted-foreground">
+                            Submit and track maintenance requests
+                          </p>
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link to="/features/bidding" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Bidding</div>
+                          <p className="text-sm leading-snug text-muted-foreground">
+                            Automated contractor bidding
+                          </p>
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link to="/features/scheduling" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Scheduling</div>
+                          <p className="text-sm leading-snug text-muted-foreground">
+                            Intelligent maintenance scheduling
+                          </p>
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link to="/features/communication" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Communication</div>
+                          <p className="text-sm leading-snug text-muted-foreground">
+                            Automatic updates and notifications
+                          </p>
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+              
+              <NavigationMenuItem>
+                <NavigationMenuTrigger className={cn(
+                  "text-sm font-medium group transition-colors",
+                  isScrolled ? "text-gray-800" : "text-gray-700"
+                )}>How It Works</NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid w-[400px] gap-3 p-4 md:grid-cols-1">
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link to="/process/tenants" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">For Tenants</div>
+                          <p className="text-sm leading-snug text-muted-foreground">
+                            How to submit and track maintenance requests
+                          </p>
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link to="/process/landlords" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">For Landlords</div>
+                          <p className="text-sm leading-snug text-muted-foreground">
+                            How to manage properties and maintenance
+                          </p>
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link to="/process/contractors" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">For Contractors</div>
+                          <p className="text-sm leading-snug text-muted-foreground">
+                            How to receive and bid on jobs
+                          </p>
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+              
+              <NavigationMenuItem>
+                <NavigationMenuTrigger className={cn(
+                  "text-sm font-medium group transition-colors",
+                  isScrolled ? "text-gray-800" : "text-gray-700"
+                )}>Pricing</NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid w-[400px] gap-3 p-4 md:grid-cols-2">
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link to="/pricing/landlords" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Landlord Plans</div>
+                          <p className="text-sm leading-snug text-muted-foreground">
+                            Pricing plans for property owners
+                          </p>
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link to="/pricing/contractors" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Contractor Plans</div>
+                          <p className="text-sm leading-snug text-muted-foreground">
+                            Pricing for maintenance providers
+                          </p>
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link to="/pricing/enterprise" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Enterprise</div>
+                          <p className="text-sm leading-snug text-muted-foreground">
+                            Custom solutions for large portfolios
+                          </p>
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link to="/pricing/comparison" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Compare Plans</div>
+                          <p className="text-sm leading-snug text-muted-foreground">
+                            Side-by-side feature comparison
+                          </p>
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu>
           
           <div className="flex items-center space-x-4">
-            <Button variant="outline" className="rounded-full px-5 py-2 h-auto">
-              Log In
+            <Button variant="outline" className="rounded-full px-5 py-2 h-auto" asChild>
+              <Link to="/login">Log In</Link>
             </Button>
-            <Button className="rounded-full px-5 py-2 h-auto bg-primary hover:bg-primary/90 transition-all">
-              Get Started
+            <Button className="rounded-full px-5 py-2 h-auto bg-primary hover:bg-primary/90 transition-all" asChild>
+              <Link to="/signup">Get Started</Link>
             </Button>
           </div>
         </div>
@@ -77,16 +231,16 @@ const Navbar = () => {
       {isMobileMenuOpen && (
         <div className="fixed inset-0 top-16 bg-white z-40 animate-fade-in">
           <div className="flex flex-col items-center justify-center h-full space-y-8 p-6">
-            <MobileNavLink href="#features" onClick={toggleMobileMenu}>Features</MobileNavLink>
-            <MobileNavLink href="#process" onClick={toggleMobileMenu}>How It Works</MobileNavLink>
-            <MobileNavLink href="#pricing" onClick={toggleMobileMenu}>Pricing</MobileNavLink>
+            <MobileNavLink href="/features/request-system" onClick={toggleMobileMenu}>Features</MobileNavLink>
+            <MobileNavLink href="/process/tenants" onClick={toggleMobileMenu}>How It Works</MobileNavLink>
+            <MobileNavLink href="/pricing/landlords" onClick={toggleMobileMenu}>Pricing</MobileNavLink>
             
             <div className="flex flex-col w-full space-y-4 pt-4">
-              <Button variant="outline" className="rounded-full py-6">
-                Log In
+              <Button variant="outline" className="rounded-full py-6" asChild>
+                <Link to="/login" onClick={toggleMobileMenu}>Log In</Link>
               </Button>
-              <Button className="rounded-full py-6 bg-primary hover:bg-primary/90">
-                Get Started
+              <Button className="rounded-full py-6 bg-primary hover:bg-primary/90" asChild>
+                <Link to="/signup" onClick={toggleMobileMenu}>Get Started</Link>
               </Button>
             </div>
           </div>
@@ -98,7 +252,7 @@ const Navbar = () => {
 
 interface NavLinkProps {
   href: string;
-  isScrolled: boolean;
+  isScrolled?: boolean;
   children: React.ReactNode;
 }
 
@@ -122,13 +276,13 @@ interface MobileNavLinkProps {
 }
 
 const MobileNavLink = ({ href, onClick, children }: MobileNavLinkProps) => (
-  <a 
-    href={href} 
+  <Link 
+    to={href} 
     onClick={onClick}
     className="text-xl font-medium py-2 w-full text-center text-gray-800 hover:text-primary transition-colors"
   >
     {children}
-  </a>
+  </Link>
 );
 
 export default Navbar;
