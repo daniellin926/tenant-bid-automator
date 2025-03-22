@@ -121,7 +121,7 @@ const Navbar = () => {
                   isScrolled ? "text-gray-800" : "text-gray-700"
                 )}>How It Works</NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <ul className="grid w-[600px] gap-3 p-4 md:grid-cols-2">
+                  <ul className="grid w-[400px] gap-3 p-4 md:grid-cols-2">
                     <li>
                       <NavigationMenuLink asChild>
                         <Link to="/process/tenants" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
@@ -138,16 +138,6 @@ const Navbar = () => {
                           <div className="text-sm font-medium leading-none">For Landlords</div>
                           <p className="text-sm leading-snug text-muted-foreground">
                             How to manage properties and maintenance
-                          </p>
-                        </Link>
-                      </NavigationMenuLink>
-                    </li>
-                    <li>
-                      <NavigationMenuLink asChild>
-                        <Link to="/process/contractors" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">For Contractors</div>
-                          <p className="text-sm leading-snug text-muted-foreground">
-                            How to receive and bid on jobs
                           </p>
                         </Link>
                       </NavigationMenuLink>

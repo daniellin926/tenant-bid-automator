@@ -15,7 +15,6 @@ import Features from "./pages/features/Features";
 // Process pages
 import TenantsProcess from "./pages/process/TenantsProcess";
 import LandlordsProcess from "./pages/process/LandlordsProcess";
-import ContractorsProcess from "./pages/process/ContractorsProcess";
 
 // Pricing page
 import LandlordPricing from "./pages/pricing/LandlordPricing";
@@ -41,7 +40,6 @@ const App = () => (
           {/* Process routes */}
           <Route path="/process/tenants" element={<TenantsProcess />} />
           <Route path="/process/landlords" element={<LandlordsProcess />} />
-          <Route path="/process/contractors" element={<ContractorsProcess />} />
           
           {/* Pricing route */}
           <Route path="/pricing/landlords" element={<LandlordPricing />} />
