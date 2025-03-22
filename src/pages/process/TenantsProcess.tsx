@@ -1,9 +1,12 @@
 
-import { ArrowRight, Home, MessageSquare, Calendar, CheckCircle } from 'lucide-react';
+import { ArrowRight, Home, MessageSquare, Calendar, CheckCircle, Play } from 'lucide-react';
 import PageTemplate from '@/components/PageTemplate';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { cn } from '@/lib/utils';
+import { useState } from 'react';
+import VideoPlayer from '@/components/VideoPlayer';
+import { Card, CardContent } from '@/components/ui/card';
 
 // Process step data
 const processSteps = [
@@ -68,6 +71,26 @@ const FAQ = ({ question, answer }) => (
 );
 
 const TenantsProcess = () => {
+  const [demoPlaying, setDemoPlaying] = useState(false);
+  const [currentStep, setCurrentStep] = useState(0);
+
+  const handleStartDemo = () => {
+    setDemoPlaying(true);
+    setCurrentStep(1);
+  };
+
+  const handleNextStep = () => {
+    if (currentStep < 5) {
+      setCurrentStep(currentStep + 1);
+    }
+  };
+
+  const handlePreviousStep = () => {
+    if (currentStep > 1) {
+      setCurrentStep(currentStep - 1);
+    }
+  };
+
   return (
     <PageTemplate 
       title="How It Works for Tenants" 
@@ -84,6 +107,75 @@ const TenantsProcess = () => {
               totalSteps={processSteps.length} 
             />
           ))}
+        </div>
+      </div>
+      
+      {/* Interactive Demo Section */}
+      <div className="bg-white rounded-xl shadow-md overflow-hidden mb-16">
+        <div className="p-6">
+          <h2 className="text-2xl font-semibold mb-4">Interactive Demo: Experience The Tenant Journey</h2>
+          <p className="text-gray-600 mb-6">
+            See how easy it is to submit maintenance requests, track their progress, 
+            schedule service appointments, and provide feedback after completion.
+          </p>
+          
+          {!demoPlaying ? (
+            <div className="flex justify-center">
+              <Button 
+                onClick={handleStartDemo} 
+                size="lg" 
+                className="flex items-center gap-2"
+              >
+                <Play className="h-5 w-5" />
+                Start Interactive Demo
+              </Button>
+            </div>
+          ) : (
+            <div className="space-y-6">
+              <Card className="border-none shadow-none">
+                <CardContent className="p-0">
+                  <div className="bg-gray-50 rounded-lg h-[600px] overflow-hidden relative">
+                    <VideoPlayer 
+                      playing={demoPlaying} 
+                      currentStep={currentStep} 
+                      onNext={handleNextStep}
+                      onPrevious={handlePreviousStep}
+                    />
+                    
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 flex justify-between items-center">
+                      <div className="flex gap-1">
+                        {[1, 2, 3, 4, 5].map((step) => (
+                          <div 
+                            key={step} 
+                            className={`w-2.5 h-2.5 rounded-full ${
+                              currentStep >= step ? 'bg-primary' : 'bg-white/50'
+                            }`}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+              
+              <div className="bg-gray-50 rounded-lg p-4">
+                <h3 className="font-medium mb-2">
+                  {currentStep === 1 && "Step 1: Submit Maintenance Request"}
+                  {currentStep === 2 && "Step 2: Request Approved & Contractor Bids"}
+                  {currentStep === 3 && "Step 3: Schedule Appointment"}
+                  {currentStep === 4 && "Step 4: Contractor Visit"}
+                  {currentStep === 5 && "Step 5: Provide Feedback"}
+                </h3>
+                <p className="text-gray-600 text-sm">
+                  {currentStep === 1 && "Use our simple form to describe your issue, add photos, and indicate the urgency. You can submit requests for any maintenance problems in your rental unit."}
+                  {currentStep === 2 && "Get instant updates as your request is approved by your landlord. You'll see qualified contractors bidding to fix your issue, each with ratings and availability."}
+                  {currentStep === 3 && "Once your landlord approves a contractor, select a convenient time slot from the contractor's available dates to schedule the repair."}
+                  {currentStep === 4 && "Receive reminders before the contractor arrives. When they complete the work, you'll be asked to confirm the issue has been resolved."}
+                  {currentStep === 5 && "Rate your experience and provide feedback. Your input helps maintain high-quality service for all tenants using mAIntenants."}
+                </p>
+              </div>
+            </div>
+          )}
         </div>
       </div>
       
