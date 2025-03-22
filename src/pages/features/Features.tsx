@@ -15,7 +15,7 @@ import {
 const Features = () => {
   return (
     <PageTemplate 
-      title={<span>Welcome to <span className="font-bold">M<span className="text-blue-600">AI</span>NTEN<span className="text-blue-600">A</span>NTS</span></span>} 
+      title="Welcome to MAINTENANTS"
       subtitle="Our AI-powered maintenance management platform"
     >
       {/* Request System Section */}
@@ -284,15 +284,15 @@ const Features = () => {
               <h3 className="text-xl font-semibold mb-4">Benefits</h3>
               <ul className="space-y-4">
                 <li className="flex items-start space-x-3">
-                  <CheckCheck className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <Check className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
                   <span className="text-gray-700">90% reduction in scheduling coordination time</span>
                 </li>
                 <li className="flex items-start space-x-3">
-                  <CheckCheck className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <Check className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
                   <span className="text-gray-700">35% faster maintenance completion</span>
                 </li>
                 <li className="flex items-start space-x-3">
-                  <CheckCheck className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <Check className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
                   <span className="text-gray-700">75% fewer missed appointments</span>
                 </li>
               </ul>
