@@ -17,11 +17,8 @@ import TenantsProcess from "./pages/process/TenantsProcess";
 import LandlordsProcess from "./pages/process/LandlordsProcess";
 import ContractorsProcess from "./pages/process/ContractorsProcess";
 
-// Pricing pages
+// Pricing page
 import LandlordPricing from "./pages/pricing/LandlordPricing";
-import ContractorPricing from "./pages/pricing/ContractorPricing";
-import EnterprisePricing from "./pages/pricing/EnterprisePricing";
-import PricingComparison from "./pages/pricing/PricingComparison";
 
 const queryClient = new QueryClient();
 
@@ -46,11 +43,8 @@ const App = () => (
           <Route path="/process/landlords" element={<LandlordsProcess />} />
           <Route path="/process/contractors" element={<ContractorsProcess />} />
           
-          {/* Pricing routes */}
+          {/* Pricing route */}
           <Route path="/pricing/landlords" element={<LandlordPricing />} />
-          <Route path="/pricing/contractors" element={<ContractorPricing />} />
-          <Route path="/pricing/enterprise" element={<EnterprisePricing />} />
-          <Route path="/pricing/comparison" element={<PricingComparison />} />
           
           {/* Catch-all route */}
           <Route path="*" element={<NotFound />} />

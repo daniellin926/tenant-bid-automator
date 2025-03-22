@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -158,54 +157,17 @@ const Navbar = () => {
               </NavigationMenuItem>
               
               <NavigationMenuItem>
-                <NavigationMenuTrigger className={cn(
-                  "text-sm font-medium group transition-colors",
-                  isScrolled ? "text-gray-800" : "text-gray-700"
-                )}>Pricing</NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <ul className="grid w-[400px] gap-3 p-4 md:grid-cols-2">
-                    <li>
-                      <NavigationMenuLink asChild>
-                        <Link to="/pricing/landlords" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">Landlord Plans</div>
-                          <p className="text-sm leading-snug text-muted-foreground">
-                            Pricing plans for property owners
-                          </p>
-                        </Link>
-                      </NavigationMenuLink>
-                    </li>
-                    <li>
-                      <NavigationMenuLink asChild>
-                        <Link to="/pricing/contractors" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">Contractor Plans</div>
-                          <p className="text-sm leading-snug text-muted-foreground">
-                            Pricing for maintenance providers
-                          </p>
-                        </Link>
-                      </NavigationMenuLink>
-                    </li>
-                    <li>
-                      <NavigationMenuLink asChild>
-                        <Link to="/pricing/enterprise" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">Enterprise</div>
-                          <p className="text-sm leading-snug text-muted-foreground">
-                            Custom solutions for large portfolios
-                          </p>
-                        </Link>
-                      </NavigationMenuLink>
-                    </li>
-                    <li>
-                      <NavigationMenuLink asChild>
-                        <Link to="/pricing/comparison" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">Compare Plans</div>
-                          <p className="text-sm leading-snug text-muted-foreground">
-                            Side-by-side feature comparison
-                          </p>
-                        </Link>
-                      </NavigationMenuLink>
-                    </li>
-                  </ul>
-                </NavigationMenuContent>
+                <NavigationMenuLink asChild>
+                  <Link 
+                    to="/pricing/landlords" 
+                    className={cn(
+                      "text-sm font-medium group transition-colors inline-flex items-center h-10 px-4 py-2",
+                      isScrolled ? "text-gray-800" : "text-gray-700"
+                    )}
+                  >
+                    Pricing
+                  </Link>
+                </NavigationMenuLink>
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>

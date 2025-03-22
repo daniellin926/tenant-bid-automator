@@ -144,9 +144,6 @@ const LandlordPricing = () => {
           <Button size="lg" asChild>
             <Link to="/contact">Schedule Consultation</Link>
           </Button>
-          <Button size="lg" variant="outline" asChild>
-            <Link to="/pricing/comparison">Compare All Plans</Link>
-          </Button>
         </div>
       </div>
     </PageTemplate>
