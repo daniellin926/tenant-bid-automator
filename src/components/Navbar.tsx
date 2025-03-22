@@ -43,13 +43,13 @@ const Navbar = () => {
         <div className="flex items-center space-x-1">
           <Link to="/" className="flex items-center space-x-1">
             <div className="w-8 h-8 rounded-md bg-primary flex items-center justify-center">
-              <span className="text-white font-bold">TB</span>
+              <span className="text-white font-bold">M</span>
             </div>
             <span className={cn(
               "font-medium text-lg transition-colors", 
               isScrolled ? "text-gray-900" : "text-gray-800"
             )}>
-              TenantBid
+              MAINTENANTS
             </span>
           </Link>
         </div>
@@ -64,46 +64,51 @@ const Navbar = () => {
                   isScrolled ? "text-gray-800" : "text-gray-700"
                 )}>Features</NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <ul className="grid w-[400px] gap-3 p-4 md:grid-cols-2">
-                    <li>
+                  <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px]">
+                    <li className="col-span-2">
                       <NavigationMenuLink asChild>
-                        <Link to="/features/request-system" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">Request System</div>
-                          <p className="text-sm leading-snug text-muted-foreground">
-                            Submit and track maintenance requests
+                        <Link to="/features" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">All Features</div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            Explore our complete maintenance management platform
                           </p>
                         </Link>
                       </NavigationMenuLink>
                     </li>
-                    <li>
-                      <NavigationMenuLink asChild>
-                        <Link to="/features/bidding" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">Bidding</div>
-                          <p className="text-sm leading-snug text-muted-foreground">
-                            Automated contractor bidding
-                          </p>
-                        </Link>
-                      </NavigationMenuLink>
+                    <li className="col-span-2">
+                      <hr className="my-2" />
                     </li>
                     <li>
-                      <NavigationMenuLink asChild>
-                        <Link to="/features/scheduling" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">Scheduling</div>
-                          <p className="text-sm leading-snug text-muted-foreground">
-                            Intelligent maintenance scheduling
-                          </p>
-                        </Link>
-                      </NavigationMenuLink>
+                      <div className="block select-none space-y-1 rounded-md p-3">
+                        <div className="text-sm font-medium leading-none">Request System</div>
+                        <p className="text-sm leading-snug text-muted-foreground">
+                          Submit and track maintenance requests
+                        </p>
+                      </div>
                     </li>
                     <li>
-                      <NavigationMenuLink asChild>
-                        <Link to="/features/communication" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">Communication</div>
-                          <p className="text-sm leading-snug text-muted-foreground">
-                            Automatic updates and notifications
-                          </p>
-                        </Link>
-                      </NavigationMenuLink>
+                      <div className="block select-none space-y-1 rounded-md p-3">
+                        <div className="text-sm font-medium leading-none">Bidding</div>
+                        <p className="text-sm leading-snug text-muted-foreground">
+                          Automated contractor bidding
+                        </p>
+                      </div>
+                    </li>
+                    <li>
+                      <div className="block select-none space-y-1 rounded-md p-3">
+                        <div className="text-sm font-medium leading-none">Scheduling</div>
+                        <p className="text-sm leading-snug text-muted-foreground">
+                          Intelligent maintenance scheduling
+                        </p>
+                      </div>
+                    </li>
+                    <li>
+                      <div className="block select-none space-y-1 rounded-md p-3">
+                        <div className="text-sm font-medium leading-none">Communication</div>
+                        <p className="text-sm leading-snug text-muted-foreground">
+                          Automatic updates and notifications
+                        </p>
+                      </div>
                     </li>
                   </ul>
                 </NavigationMenuContent>
@@ -231,7 +236,7 @@ const Navbar = () => {
       {isMobileMenuOpen && (
         <div className="fixed inset-0 top-16 bg-white z-40 animate-fade-in">
           <div className="flex flex-col items-center justify-center h-full space-y-8 p-6">
-            <MobileNavLink href="/features/request-system" onClick={toggleMobileMenu}>Features</MobileNavLink>
+            <MobileNavLink href="/features" onClick={toggleMobileMenu}>Features</MobileNavLink>
             <MobileNavLink href="/process/tenants" onClick={toggleMobileMenu}>How It Works</MobileNavLink>
             <MobileNavLink href="/pricing/landlords" onClick={toggleMobileMenu}>Pricing</MobileNavLink>
             

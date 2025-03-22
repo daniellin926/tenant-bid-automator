@@ -11,10 +11,6 @@ import SignupPage from "./pages/SignupPage";
 
 // Feature pages
 import Features from "./pages/features/Features";
-import RequestSystem from "./pages/features/RequestSystem";
-import Bidding from "./pages/features/Bidding";
-import Scheduling from "./pages/features/Scheduling";
-import Communication from "./pages/features/Communication";
 
 // Process pages
 import TenantsProcess from "./pages/process/TenantsProcess";
@@ -42,12 +38,8 @@ const App = () => (
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
           
-          {/* Features routes */}
+          {/* Features route (now consolidated) */}
           <Route path="/features" element={<Features />} />
-          <Route path="/features/request-system" element={<RequestSystem />} />
-          <Route path="/features/bidding" element={<Bidding />} />
-          <Route path="/features/scheduling" element={<Scheduling />} />
-          <Route path="/features/communication" element={<Communication />} />
           
           {/* Process routes */}
           <Route path="/process/tenants" element={<TenantsProcess />} />
