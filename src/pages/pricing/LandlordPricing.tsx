@@ -1,4 +1,3 @@
-
 import { Check } from 'lucide-react';
 import PageTemplate from '@/components/PageTemplate';
 import { Button } from '@/components/ui/button';
@@ -16,7 +15,7 @@ const LandlordPricing = () => {
   const plans = [
     {
       name: "Starter",
-      price: "$29",
+      price: "Free",
       description: "Perfect for small landlords with up to 5 units",
       features: [
         "Up to 5 units",
@@ -36,7 +35,6 @@ const LandlordPricing = () => {
       features: [
         "Up to 20 units",
         "Everything in Starter",
-        "Tenant portal access",
         "Scheduled maintenance",
         "Advanced reporting",
         "Priority email support"
@@ -84,7 +82,7 @@ const LandlordPricing = () => {
               <CardDescription>{plan.description}</CardDescription>
               <div className="mt-4">
                 <span className="text-3xl font-bold">{plan.price}</span>
-                <span className="text-gray-500">/month</span>
+                {plan.price !== "Free" && <span className="text-gray-500">/month</span>}
               </div>
             </CardHeader>
             <CardContent>
