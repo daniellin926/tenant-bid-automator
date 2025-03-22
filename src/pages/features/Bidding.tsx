@@ -96,7 +96,7 @@ const Bidding = () => {
                             </div>
                           </div>
                         </div>
-                        <div className="text-lg font-bold text-green-700">95</div>
+                        <div className="text-lg font-bold text-green-700">$95</div>
                       </div>
                       
                       <div className="flex items-center gap-4 my-2 text-xs">
@@ -141,7 +141,7 @@ const Bidding = () => {
                             </div>
                           </div>
                         </div>
-                        <div className="text-lg font-bold">120</div>
+                        <div className="text-lg font-bold">$120</div>
                       </div>
                       
                       <div className="flex items-center gap-4 my-2 text-xs">
@@ -186,7 +186,7 @@ const Bidding = () => {
                             </div>
                           </div>
                         </div>
-                        <div className="text-lg font-bold">135</div>
+                        <div className="text-lg font-bold">$135</div>
                       </div>
                       
                       <div className="flex items-center gap-4 my-2 text-xs">

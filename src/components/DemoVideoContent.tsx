@@ -646,7 +646,7 @@ const DemoVideoContent = ({ currentStep = 1 }: DemoVideoContentProps) => {
     );
   }
 
-  // Landlord journey UI
+  // Add the landlord journey UI here
   return (
     <div className="bg-white p-6 rounded-xl shadow-md w-full h-full overflow-y-auto">
       <div className="mx-auto max-w-4xl">
@@ -771,14 +771,14 @@ const DemoVideoContent = ({ currentStep = 1 }: DemoVideoContentProps) => {
                     </div>
                     <div>
                       <h4 className="font-medium">Request #472: Plumbing Issue - Kitchen Sink</h4>
-                      <div className="text-sm text-gray-500 mt-1">Submitted by John Smith (Apartment 4B)</div>
+                      <div className="text-sm text-gray-500 mt-1">Submitted Today, 2:42 PM by John Smith (Apt 4B)</div>
                     </div>
                   </div>
                 </div>
                 
-                <h4 className="font-medium mb-3">Select a Contractor</h4>
+                <h4 className="font-medium mb-3">Available Contractors</h4>
                 <p className="text-sm text-gray-600 mb-4">
-                  Review bids from qualified contractors in your area and select the best option.
+                  These contractors are available to fix the issue. Review their profiles and select the best option.
                 </p>
                 
                 <div className="space-y-4">
@@ -797,20 +797,20 @@ const DemoVideoContent = ({ currentStep = 1 }: DemoVideoContentProps) => {
                           </div>
                         </div>
                       </div>
-                      <div className="text-right">
-                        <div className="font-medium">150</div>
-                        <Badge variant="outline" className="bg-blue-50 text-blue-700">Available Today</Badge>
-                      </div>
+                      <Badge variant="outline" className="bg-blue-50 text-blue-700">Available Today</Badge>
                     </div>
                     
-                    <div className="text-sm text-gray-600 mb-3">
+                    <div className="text-sm text-gray-600 mb-2">
                       "I can fix the kitchen sink leak today. This sounds like a typical issue with the P-trap or drain assembly."
                     </div>
-                    
-                    <Button onClick={handleApproveBid} size="sm" className="w-full">
-                      <Check className="h-4 w-4 mr-2" />
-                      Select This Contractor
-                    </Button>
+
+                    <div className="flex justify-between items-center mt-4">
+                      <div className="flex items-center">
+                        <DollarSign className="h-4 w-4 text-gray-700 mr-1" />
+                        <span className="font-medium">$120 estimated</span>
+                      </div>
+                      <Button onClick={handleApproveBid} size="sm">Select Contractor</Button>
+                    </div>
                   </div>
                   
                   <div className="border rounded-md p-4">
@@ -828,19 +828,20 @@ const DemoVideoContent = ({ currentStep = 1 }: DemoVideoContentProps) => {
                           </div>
                         </div>
                       </div>
-                      <div className="text-right">
-                        <div className="font-medium">175</div>
-                        <Badge variant="outline" className="bg-blue-50 text-blue-700">Available Tomorrow</Badge>
-                      </div>
+                      <Badge variant="outline" className="bg-blue-50 text-blue-700">Available Tomorrow</Badge>
                     </div>
                     
-                    <div className="text-sm text-gray-600 mb-3">
+                    <div className="text-sm text-gray-600 mb-2">
                       "I specialize in kitchen plumbing repairs. Happy to help with your sink issue."
                     </div>
-                    
-                    <Button variant="outline" size="sm" className="w-full">
-                      Select This Contractor
-                    </Button>
+
+                    <div className="flex justify-between items-center mt-4">
+                      <div className="flex items-center">
+                        <DollarSign className="h-4 w-4 text-gray-700 mr-1" />
+                        <span className="font-medium">$145 estimated</span>
+                      </div>
+                      <Button variant="outline" size="sm">Select Contractor</Button>
+                    </div>
                   </div>
                   
                   <div className="border rounded-md p-4">
@@ -858,19 +859,20 @@ const DemoVideoContent = ({ currentStep = 1 }: DemoVideoContentProps) => {
                           </div>
                         </div>
                       </div>
-                      <div className="text-right">
-                        <div className="font-medium">195</div>
-                        <Badge variant="outline" className="bg-blue-50 text-blue-700">Available Friday</Badge>
-                      </div>
+                      <Badge variant="outline" className="bg-blue-50 text-blue-700">Available Friday</Badge>
                     </div>
                     
-                    <div className="text-sm text-gray-600 mb-3">
+                    <div className="text-sm text-gray-600 mb-2">
                       "We can replace the entire assembly if needed. We have parts in stock."
                     </div>
-                    
-                    <Button variant="outline" size="sm" className="w-full">
-                      Select This Contractor
-                    </Button>
+
+                    <div className="flex justify-between items-center mt-4">
+                      <div className="flex items-center">
+                        <DollarSign className="h-4 w-4 text-gray-700 mr-1" />
+                        <span className="font-medium">$95 estimated</span>
+                      </div>
+                      <Button variant="outline" size="sm">Select Contractor</Button>
+                    </div>
                   </div>
                 </div>
               </CardContent>
@@ -902,46 +904,50 @@ const DemoVideoContent = ({ currentStep = 1 }: DemoVideoContentProps) => {
                         <span className="text-gray-500">(127 jobs)</span>
                       </div>
                       <div className="mt-1 text-sm text-gray-500">
-                        <span className="text-green-600 font-medium">Selected</span> to fix John Smith's kitchen sink
+                        Will fix the kitchen sink leak in Apartment 4B
                       </div>
                     </div>
-                  </div>
-                </div>
-                
-                <h4 className="font-medium mb-3">Bid Details</h4>
-                <div className="grid grid-cols-2 gap-4 mb-4">
-                  <div>
-                    <div className="text-sm text-gray-500">Estimated Cost</div>
-                    <div className="font-bold text-xl">150</div>
-                  </div>
-                  <div>
-                    <div className="text-sm text-gray-500">Availability</div>
-                    <div className="font-medium">Today</div>
                   </div>
                 </div>
                 
                 <div className="p-4 bg-blue-50 rounded-lg mb-4">
-                  <h5 className="font-medium mb-2">Work Scope</h5>
-                  <p className="text-sm text-gray-600">
-                    "I'll inspect the kitchen sink plumbing, identify the source of the leak, and make necessary repairs. 
-                    This will likely involve replacing the P-trap and/or drain assembly. I have common parts with me, 
-                    but if additional parts are needed, there may be extra costs. Estimated repair time: 1-2 hours."
-                  </p>
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="font-medium text-blue-800">Estimated Cost</div>
+                    <div className="font-bold text-xl">$120</div>
+                  </div>
+                  <div className="text-sm text-gray-600">
+                    Final amount may vary based on parts needed and labor time.
+                  </div>
                 </div>
                 
-                <div className="space-y-4">
-                  <div className="border-t pt-4">
-                    <h5 className="font-medium mb-2">Scheduling</h5>
-                    <div className="bg-green-50 p-3 rounded-lg text-sm text-gray-700">
-                      <div className="flex items-center gap-2 text-green-700 mb-1">
-                        <CalendarCheck className="h-4 w-4" />
-                        <span className="font-medium">Automatic scheduling in progress</span>
-                      </div>
-                      <p>
-                        The tenant will be notified to select a convenient appointment time.
-                        You'll receive confirmation once the appointment is scheduled.
-                      </p>
+                <div className="border-t pt-4 mt-4">
+                  <h4 className="font-medium mb-3">Tenant and Property Details</h4>
+                  <div className="grid grid-cols-2 gap-6">
+                    <div>
+                      <div className="text-sm text-gray-500">Tenant</div>
+                      <div className="font-medium">John Smith</div>
                     </div>
+                    <div>
+                      <div className="text-sm text-gray-500">Property</div>
+                      <div className="font-medium">123 Main St, Apt 4B</div>
+                    </div>
+                    <div>
+                      <div className="text-sm text-gray-500">Issue Category</div>
+                      <div className="font-medium">Plumbing - Kitchen Sink</div>
+                    </div>
+                    <div>
+                      <div className="text-sm text-gray-500">Priority</div>
+                      <div className="font-medium text-amber-600">High - Within 24 hours</div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="border-t pt-4 mt-4">
+                  <h4 className="font-medium mb-3">Next Steps</h4>
+                  <div className="text-sm space-y-2 text-gray-600">
+                    <p>1. The tenant will be notified about the selected contractor.</p>
+                    <p>2. The tenant and contractor will schedule a convenient time.</p>
+                    <p>3. You'll be notified when the repair is complete.</p>
                   </div>
                 </div>
               </CardContent>
@@ -957,18 +963,18 @@ const DemoVideoContent = ({ currentStep = 1 }: DemoVideoContentProps) => {
               <CardContent className="pt-6">
                 <div className="flex items-start gap-4 mb-4">
                   <div className="bg-blue-100 p-3 rounded-full">
-                    <CalendarCheck className="h-6 w-6 text-blue-700" />
+                    <Clock className="h-6 w-6 text-blue-700" />
                   </div>
                   <div>
-                    <h4 className="font-medium text-lg">Appointment Scheduled</h4>
+                    <h4 className="font-medium text-lg">Repair Scheduled</h4>
                     <p className="text-gray-600 mb-3">
-                      Bob's Plumbing is working on the kitchen sink repair
+                      Bob's Plumbing is working on the kitchen sink issue in Apartment 4B
                     </p>
                     
                     <div className="p-4 bg-blue-50 rounded-lg mb-4">
                       <div className="flex items-center justify-between">
                         <div>
-                          <div className="text-sm text-gray-500">Date & Time</div>
+                          <div className="text-sm text-gray-500">Appointment Time</div>
                           <div className="font-bold text-blue-800">Today, 3:00 PM - 5:00 PM</div>
                         </div>
                         <Badge variant="outline" className="bg-amber-50 text-amber-700">
@@ -1014,10 +1020,11 @@ const DemoVideoContent = ({ currentStep = 1 }: DemoVideoContentProps) => {
                     </div>
                     
                     <div className="border-t pt-4 mt-4">
-                      <h5 className="font-medium mb-2">Repair Notes from Contractor:</h5>
+                      <h5 className="font-medium mb-2">Update from Contractor:</h5>
                       <p className="text-sm text-gray-600">
                         "I've identified the issue with the sink. The P-trap connection is loose and the drain 
-                        assembly needs to be replaced. I have the parts with me and am working on the repair now."
+                        assembly needs to be replaced. I have the parts with me and am working on the repair now.
+                        This should be fixed within the next hour."
                       </p>
                     </div>
                   </div>
@@ -1030,7 +1037,7 @@ const DemoVideoContent = ({ currentStep = 1 }: DemoVideoContentProps) => {
         {/* Step 5: Approve Payment */}
         {(step === 5) && (
           <div className="mb-8 animate-fade-in">
-            <h3 className="text-xl font-semibold mb-4">Repair Complete - Approve Payment</h3>
+            <h3 className="text-xl font-semibold mb-4">Approve Payment</h3>
             <Card>
               <CardContent className="pt-6">
                 {!paymentApproved ? (
@@ -1040,42 +1047,48 @@ const DemoVideoContent = ({ currentStep = 1 }: DemoVideoContentProps) => {
                         <Check className="h-6 w-6 text-green-700" />
                       </div>
                       <div>
-                        <h4 className="font-medium text-lg">Repair has been completed!</h4>
+                        <h4 className="font-medium text-lg">Repair Complete!</h4>
                         <p className="text-gray-600">
-                          Bob's Plumbing has fixed the kitchen sink leak. Please review and approve payment.
+                          Bob's Plumbing has completed the kitchen sink repair in Apartment 4B
                         </p>
                       </div>
                     </div>
                     
                     <div className="border-t pt-4">
-                      <h5 className="font-medium mb-3">Repair Summary</h5>
-                      <div className="p-4 bg-gray-50 rounded-lg mb-4">
-                        <p className="text-sm text-gray-600">
-                          "The kitchen sink leak was caused by a worn-out P-trap and loose connections. I've replaced 
-                          the P-trap assembly and tightened all connections. I also inspected the rest of the under-sink 
-                          plumbing and everything is in good condition. The sink is now functioning properly with no leaks."
+                      <h5 className="font-medium mb-3">Repair Details</h5>
+                      <div className="p-4 bg-gray-50 rounded-md text-sm space-y-2">
+                        <p>
+                          "The P-trap connection was loose and the drain assembly had corroded. I replaced the 
+                          entire drain assembly with a new one and secured all connections. The sink is now working 
+                          properly with no leaks. I also checked the other plumbing under the sink and everything 
+                          is in good condition."
+                        </p>
+                        <p className="pt-2">
+                          "I recommend the tenant run water for a minute and check for any slow drains or leaks 
+                          in the next day, just to be safe. If there are any issues, please contact me right away."
                         </p>
                       </div>
-                      
-                      <div className="grid grid-cols-2 gap-4 mb-4">
-                        <div>
-                          <div className="text-sm text-gray-500">Final Cost</div>
-                          <div className="font-bold text-xl">150</div>
-                        </div>
-                        <div>
-                          <div className="text-sm text-gray-500">Parts & Labor</div>
-                          <div className="font-medium">P-trap Assembly + 1.5 hours labor</div>
-                        </div>
-                      </div>
-                      
-                      <div className="mt-4">
-                        <div className="text-sm text-gray-500 mb-2">Photos of Completed Work</div>
-                        <div className="grid grid-cols-3 gap-3">
-                          <div className="h-24 bg-gray-100 rounded-md flex items-center justify-center text-gray-400">
-                            <Camera className="h-8 w-8" />
+                    </div>
+                    
+                    <div className="border-t pt-4">
+                      <h5 className="font-medium mb-3">Payment Summary</h5>
+                      <div className="p-4 bg-blue-50 rounded-lg">
+                        <div className="space-y-3">
+                          <div className="flex justify-between">
+                            <span className="text-gray-600">Labor (1.5 hours)</span>
+                            <span>$90.00</span>
                           </div>
-                          <div className="h-24 bg-gray-100 rounded-md flex items-center justify-center text-gray-400">
-                            <Camera className="h-8 w-8" />
+                          <div className="flex justify-between">
+                            <span className="text-gray-600">Parts (Drain assembly)</span>
+                            <span>$45.00</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-gray-600">Service fee</span>
+                            <span>$10.00</span>
+                          </div>
+                          <div className="border-t pt-2 flex justify-between font-bold">
+                            <span>Total</span>
+                            <span>$145.00</span>
                           </div>
                         </div>
                       </div>
@@ -1083,7 +1096,7 @@ const DemoVideoContent = ({ currentStep = 1 }: DemoVideoContentProps) => {
                     
                     <div className="border-t pt-4 flex justify-end">
                       <Button onClick={handleApprovePayment}>
-                        <Check className="h-4 w-4 mr-2" />
+                        <Wallet className="h-4 w-4 mr-2" />
                         Approve Payment
                       </Button>
                     </div>
@@ -1093,7 +1106,7 @@ const DemoVideoContent = ({ currentStep = 1 }: DemoVideoContentProps) => {
                     <Check className="h-10 w-10 text-green-600 mx-auto mb-2" />
                     <h4 className="font-medium text-lg text-green-800">Payment Approved!</h4>
                     <p className="text-gray-600 mt-2">
-                      The contractor will be paid automatically. All documentation has been saved to your records.
+                      The payment of $145.00 to Bob's Plumbing has been processed successfully.
                     </p>
                     <div className="flex justify-center mt-4">
                       <div className="p-4 bg-white rounded-md border max-w-md">
@@ -1101,7 +1114,7 @@ const DemoVideoContent = ({ currentStep = 1 }: DemoVideoContentProps) => {
                         <div className="text-sm space-y-2">
                           <div className="flex justify-between">
                             <span className="text-gray-600">Request submitted:</span>
-                            <span>Yesterday, 2:42 PM</span>
+                            <span>Today, 2:42 PM</span>
                           </div>
                           <div className="flex justify-between">
                             <span className="text-gray-600">Repair completed:</span>
@@ -1109,11 +1122,7 @@ const DemoVideoContent = ({ currentStep = 1 }: DemoVideoContentProps) => {
                           </div>
                           <div className="flex justify-between">
                             <span className="text-gray-600">Total time to resolution:</span>
-                            <span className="font-medium text-green-700">25 hours, 33 minutes</span>
-                          </div>
-                          <div className="flex justify-between">
-                            <span className="text-gray-600">Final cost:</span>
-                            <span className="font-medium">150</span>
+                            <span className="font-medium text-green-700">1 hour, 33 minutes</span>
                           </div>
                         </div>
                       </div>
