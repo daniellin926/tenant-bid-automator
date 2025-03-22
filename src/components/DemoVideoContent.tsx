@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 import { ArrowRight, Clock, Wallet, BarChart, Check, CalendarCheck, MessageSquare, ShieldCheck, BellRing, DollarSign, Upload, Camera, Star, ThumbsUp } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
@@ -85,6 +84,31 @@ const DemoVideoContent = ({ currentStep = 1 }: DemoVideoContentProps) => {
       setFeedbackSubmitted(false);
     }
   }, [currentStep]);
+
+  // Adding the missing handler functions
+  const handleApproveRequest = () => {
+    setRequestReviewed(true);
+    toast({
+      title: "Request approved",
+      description: "Finding contractors in your area...",
+    });
+  };
+
+  const handleApproveBid = () => {
+    setBidApproved(true);
+    toast({
+      title: "Bid approved",
+      description: "Bob's Plumbing has been notified.",
+    });
+  };
+
+  const handleApprovePayment = () => {
+    setPaymentApproved(true);
+    toast({
+      title: "Payment approved",
+      description: "The contractor will be paid automatically.",
+    });
+  };
 
   // These handlers are now just for visual display since actual navigation 
   // is controlled by the parent component
