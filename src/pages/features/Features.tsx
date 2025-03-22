@@ -129,91 +129,97 @@ const Features = () => {
               <div className="absolute inset-0 flex flex-col p-4 overflow-y-auto">
                 <div className="bg-white rounded-lg shadow-sm p-4">
                   <div className="flex justify-between items-center mb-3">
-                    <h3 className="font-medium text-lg">Bids for Repair Request #4872</h3>
-                    <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full">3 Bids</span>
+                    <h3 className="font-medium text-lg">Review Contractor Bids</h3>
+                    <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full">3 Bids Available</span>
                   </div>
                   <div className="flex items-center text-sm mb-4">
-                    <Wallet className="h-4 w-4 text-gray-500 mr-1" />
-                    <span className="text-gray-700 mr-4">Leaking Kitchen Sink</span>
+                    <Wrench className="h-4 w-4 text-gray-500 mr-1" />
+                    <span className="text-gray-700 mr-4">Bathroom Sink Repair</span>
                     <Clock className="h-4 w-4 text-orange-500 mr-1" />
-                    <span className="text-orange-600">Urgent</span>
+                    <span className="text-orange-600">Priority: High</span>
                   </div>
                   
-                  <div className="space-y-4">
-                    <div className="border border-green-200 rounded-md p-3 bg-green-50">
-                      <div className="flex justify-between items-start mb-2">
-                        <div className="flex items-center">
-                          <div className="bg-blue-100 w-8 h-8 rounded-full flex items-center justify-center mr-2">
-                            <User className="h-4 w-4 text-blue-600" />
-                          </div>
-                          <div>
-                            <div className="font-medium">Bob's Plumbing</div>
-                            <div className="flex items-center text-xs">
-                              <Star className="h-3 w-3 text-yellow-500 mr-1" />
-                              <span className="mr-1">4.9</span>
-                              <span className="text-gray-500">(127 jobs)</span>
+                  <Table>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead className="w-[180px]">Contractor</TableHead>
+                        <TableHead>Price</TableHead>
+                        <TableHead className="text-right">Availability</TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      <TableRow className="bg-green-50 border-l-2 border-green-500">
+                        <TableCell className="font-medium">
+                          <div className="flex items-center">
+                            <div className="bg-blue-100 w-8 h-8 rounded-full flex items-center justify-center mr-2">
+                              <User className="h-4 w-4 text-blue-600" />
+                            </div>
+                            <div>
+                              <div>Bob's Plumbing</div>
+                              <div className="flex items-center text-xs text-yellow-500">
+                                <Star className="h-3 w-3 mr-0.5" />
+                                <Star className="h-3 w-3 mr-0.5" />
+                                <Star className="h-3 w-3 mr-0.5" />
+                                <Star className="h-3 w-3 mr-0.5" />
+                                <Star className="h-3 w-3 mr-0.5" />
+                                <span className="text-gray-500 ml-1">(127)</span>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                        <div className="text-lg font-bold text-green-700">$95</div>
-                      </div>
-                      
-                      <div className="flex items-center gap-4 my-2 text-xs">
-                        <div className="flex items-center">
-                          <ShieldCheck className="h-3 w-3 text-blue-600 mr-1" />
-                          <span>Verified</span>
-                        </div>
-                        <div className="flex items-center">
-                          <Calendar className="h-3 w-3 text-gray-600 mr-1" />
-                          <span>Available Today</span>
-                        </div>
-                      </div>
-                      
-                      <p className="text-xs text-gray-600 mb-3">
-                        "I can fix your kitchen sink leak today. I've handled similar issues in your building before."
-                      </p>
-                      
-                      <div className="flex justify-between">
-                        <Button size="sm" variant="outline" className="text-xs h-8">
-                          <MessageSquare className="h-3 w-3 mr-1" />
-                          Message
-                        </Button>
-                        <Button size="sm" variant="default" className="text-xs h-8">
-                          <Check className="h-3 w-3 mr-1" />
-                          Accept Bid
-                        </Button>
-                      </div>
-                    </div>
-                    
-                    <div className="border rounded-md p-3">
-                      <div className="flex justify-between items-start mb-2">
-                        <div className="flex items-center">
-                          <div className="bg-purple-100 w-8 h-8 rounded-full flex items-center justify-center mr-2">
-                            <User className="h-4 w-4 text-purple-600" />
-                          </div>
-                          <div>
-                            <div className="font-medium">Pro Plumbing Services</div>
-                            <div className="flex items-center text-xs">
-                              <Star className="h-3 w-3 text-yellow-500 mr-1" />
-                              <span className="mr-1">4.7</span>
-                              <span className="text-gray-500">(82 jobs)</span>
+                        </TableCell>
+                        <TableCell className="font-bold text-green-700">$95</TableCell>
+                        <TableCell className="text-right">Today, 2-4PM</TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell className="font-medium">
+                          <div className="flex items-center">
+                            <div className="bg-purple-100 w-8 h-8 rounded-full flex items-center justify-center mr-2">
+                              <User className="h-4 w-4 text-purple-600" />
+                            </div>
+                            <div>
+                              <div>Pro Plumbing</div>
+                              <div className="flex items-center text-xs text-yellow-500">
+                                <Star className="h-3 w-3 mr-0.5" />
+                                <Star className="h-3 w-3 mr-0.5" />
+                                <Star className="h-3 w-3 mr-0.5" />
+                                <Star className="h-3 w-3 mr-0.5" />
+                                <Star className="h-3 w-3 mr-0.5 text-gray-300" />
+                                <span className="text-gray-500 ml-1">(82)</span>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                        <div className="text-lg font-bold">$120</div>
-                      </div>
-                      
-                      <div className="flex justify-between">
-                        <Button size="sm" variant="outline" className="text-xs h-8">
-                          <MessageSquare className="h-3 w-3 mr-1" />
-                          Message
-                        </Button>
-                        <Button size="sm" variant="outline" className="text-xs h-8">
-                          <Check className="h-3 w-3 mr-1" />
-                          Accept Bid
-                        </Button>
-                      </div>
-                    </div>
+                        </TableCell>
+                        <TableCell className="font-medium">$120</TableCell>
+                        <TableCell className="text-right">Tomorrow, 9-12AM</TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell className="font-medium">
+                          <div className="flex items-center">
+                            <div className="bg-amber-100 w-8 h-8 rounded-full flex items-center justify-center mr-2">
+                              <User className="h-4 w-4 text-amber-600" />
+                            </div>
+                            <div>
+                              <div>City Repairs</div>
+                              <div className="flex items-center text-xs text-yellow-500">
+                                <Star className="h-3 w-3 mr-0.5" />
+                                <Star className="h-3 w-3 mr-0.5" />
+                                <Star className="h-3 w-3 mr-0.5" />
+                                <Star className="h-3 w-3 mr-0.5 text-gray-300" />
+                                <Star className="h-3 w-3 mr-0.5 text-gray-300" />
+                                <span className="text-gray-500 ml-1">(43)</span>
+                              </div>
+                            </div>
+                          </div>
+                        </TableCell>
+                        <TableCell className="font-medium">$115</TableCell>
+                        <TableCell className="text-right">Today, 5-7PM</TableCell>
+                      </TableRow>
+                    </TableBody>
+                  </Table>
+                  
+                  <div className="flex justify-between mt-4">
+                    <Button variant="outline" size="sm">View Details</Button>
+                    <Button variant="default" size="sm">Select Bob's Plumbing</Button>
                   </div>
                 </div>
               </div>
