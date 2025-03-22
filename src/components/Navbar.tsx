@@ -49,7 +49,7 @@ const Navbar = () => {
               "font-medium text-lg transition-colors", 
               isScrolled ? "text-gray-900" : "text-gray-800"
             )}>
-              MAINTENANTS
+              m<span className="text-primary font-bold">AI</span>ntenants
             </span>
           </Link>
         </div>

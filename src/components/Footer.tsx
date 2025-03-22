@@ -12,9 +12,9 @@ const Footer = () => {
           <div>
             <div className="flex items-center space-x-2 mb-6">
               <div className="w-8 h-8 rounded-md bg-primary flex items-center justify-center">
-                <span className="text-white font-bold">TB</span>
+                <span className="text-white font-bold">M</span>
               </div>
-              <span className="font-medium text-lg">TenantBid</span>
+              <span className="font-medium text-lg">m<span className="text-primary font-bold">AI</span>ntenants</span>
             </div>
             
             <p className="text-gray-600 mb-6">
@@ -90,7 +90,7 @@ const Footer = () => {
         
         <div className="mt-12 pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-500 text-sm mb-4 md:mb-0">
-            &copy; {currentYear} TenantBid. All rights reserved.
+            &copy; {currentYear} m<span className="text-primary font-semibold">AI</span>ntenants. All rights reserved.
           </p>
           
           <div className="flex space-x-6">
