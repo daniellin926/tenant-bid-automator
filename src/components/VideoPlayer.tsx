@@ -16,18 +16,8 @@ const VideoPlayer = ({ playing, currentStep = 0, onEnded }: VideoPlayerProps) =>
       setDemoStarted(true);
     }
     
-    // Only set up auto-ending timer if no manual step control is provided
-    let timer: NodeJS.Timeout;
-    if (playing && onEnded && !currentStep) {
-      timer = setTimeout(() => {
-        onEnded();
-      }, 30000); // 30 seconds demo
-    }
-    
-    return () => {
-      if (timer) clearTimeout(timer);
-    };
-  }, [playing, onEnded, demoStarted, currentStep]);
+    // Removed auto-ending timer to allow only manual navigation
+  }, [playing, demoStarted]);
 
   return (
     <div className="relative w-full h-full bg-white">

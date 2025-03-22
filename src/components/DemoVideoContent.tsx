@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 import { ArrowRight, Clock, Wallet, BarChart, Check, CalendarCheck, MessageSquare, ShieldCheck, BellRing, DollarSign } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
@@ -25,55 +24,41 @@ const DemoVideoContent = ({ currentStep = 1 }: DemoVideoContentProps) => {
   // Update step when currentStep prop changes
   useEffect(() => {
     setStep(currentStep);
-  }, [currentStep]);
-
-  useEffect(() => {
-    let timer: NodeJS.Timeout;
     
-    // Automated demo sequence
-    if (step === 1) {
-      // Show landlord receiving request notification
-      timer = setTimeout(() => {
-        setStep(2);
-      }, 2000);
-    } else if (step === 2) {
-      // Show request details and approval
-      timer = setTimeout(() => {
-        setRequestReviewed(true);
-        setTimeout(() => setStep(3), 2000);
-      }, 3000);
-    } else if (step === 3) {
-      // Show bids from contractors
-      timer = setTimeout(() => {
-        setShowBids(true);
-        setTimeout(() => setBidApproved(true), 3000);
-        setTimeout(() => setStep(4), 4500);
-      }, 1000);
-    } else if (step === 4) {
-      // Show scheduled appointment
-      timer = setTimeout(() => {
-        setShowSchedule(true);
-        setTimeout(() => setStep(5), 3000);
-      }, 1000);
-    } else if (step === 5) {
-      // Show completion and payment approval
-      timer = setTimeout(() => {
-        setShowCompletion(true);
-        setTimeout(() => setPaymentApproved(true), 3000);
-      }, 1000);
+    // Reset states when current step changes
+    if (currentStep === 1) {
+      setRequestReviewed(false);
+      setShowBids(false);
+      setBidApproved(false);
+      setShowSchedule(false);
+      setShowCompletion(false);
+      setPaymentApproved(false);
+    } else if (currentStep === 2) {
+      setRequestReviewed(false);
+    } else if (currentStep === 3) {
+      setRequestReviewed(true);
+      setShowBids(true);
+      setBidApproved(false);
+    } else if (currentStep === 4) {
+      setRequestReviewed(true);
+      setShowBids(true);
+      setBidApproved(true);
+      setShowSchedule(true);
+    } else if (currentStep === 5) {
+      setRequestReviewed(true);
+      setShowBids(true);
+      setBidApproved(true);
+      setShowSchedule(true);
+      setShowCompletion(true);
     }
-    
-    return () => clearTimeout(timer);
-  }, [step]);
+  }, [currentStep]);
 
   const handleApproveRequest = () => {
     setRequestReviewed(true);
-    setTimeout(() => setStep(3), 1500);
   };
 
   const handleApproveBid = () => {
     setBidApproved(true);
-    setTimeout(() => setStep(4), 1500);
   };
 
   const handleApprovePayment = () => {
@@ -116,7 +101,7 @@ const DemoVideoContent = ({ currentStep = 1 }: DemoVideoContentProps) => {
         </div>
 
         {/* Step 1-2: Incoming Maintenance Request */}
-        {step <= 2 && (
+        {(step <= 2) && (
           <div className="mb-8 animate-fade-in">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-xl font-semibold">New Maintenance Request</h3>
@@ -181,7 +166,7 @@ const DemoVideoContent = ({ currentStep = 1 }: DemoVideoContentProps) => {
         )}
 
         {/* Step 3: Bidding Process */}
-        {showBids && (
+        {(showBids || step === 3) && (
           <div className="mb-8 animate-fade-in">
             <h3 className="text-xl font-semibold mb-4">Select Contractor Bid</h3>
             <Card>
@@ -315,7 +300,7 @@ const DemoVideoContent = ({ currentStep = 1 }: DemoVideoContentProps) => {
         )}
 
         {/* Step 4: Scheduling Confirmation */}
-        {showSchedule && (
+        {(showSchedule || step === 4) && (
           <div className="mb-8 animate-fade-in">
             <h3 className="text-xl font-semibold mb-4">Scheduled Maintenance</h3>
             <Card>
@@ -368,7 +353,7 @@ const DemoVideoContent = ({ currentStep = 1 }: DemoVideoContentProps) => {
         )}
 
         {/* Step 5: Work Completion & Payment Approval */}
-        {showCompletion && (
+        {(showCompletion || step === 5) && (
           <div className="mb-8 animate-fade-in">
             <h3 className="text-xl font-semibold mb-4">Approve Payment</h3>
             <Card>
@@ -439,14 +424,6 @@ const DemoVideoContent = ({ currentStep = 1 }: DemoVideoContentProps) => {
                 </div>
               </CardContent>
             </Card>
-          </div>
-        )}
-
-        {step === 1 && (
-          <div className="text-center">
-            <Button onClick={() => setStep(2)} className="mx-auto">
-              Start Demo
-            </Button>
           </div>
         )}
       </div>
