@@ -1,7 +1,7 @@
 
-import { ArrowRight, Building, Wrench, Timer, CheckCircle } from 'lucide-react';
+import { ArrowRight, Building } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import AnimatedIcon from './AnimatedIcon';
+import StatsDisplay from './StatsDisplay';
 
 const HeroSection = () => {
   return (
@@ -38,15 +38,9 @@ const HeroSection = () => {
               </Button>
             </div>
             
-            <div className="flex items-center space-x-5 pt-2 animate-slide-up" style={{ animationDelay: '300ms' }}>
-              <div className="flex -space-x-2">
-                {[1, 2, 3, 4].map((i) => (
-                  <div key={i} className="w-8 h-8 rounded-full border-2 border-white bg-gray-200"></div>
-                ))}
-              </div>
-              <div className="text-sm text-gray-500">
-                <span className="font-semibold text-gray-700">800+ properties</span> are managing maintenance with <span className="font-medium">m<span className="text-primary font-bold">AI</span>ntenants</span>
-              </div>
+            {/* New Stats Display component */}
+            <div className="animate-slide-up" style={{ animationDelay: '300ms' }}>
+              <StatsDisplay />
             </div>
           </div>
           
@@ -109,35 +103,6 @@ const HeroSection = () => {
                 </div>
               </div>
             </div>
-            
-            {/* Floating UI elements */}
-            <AnimatedIcon 
-              icon={<Wrench size={24} className="text-blue-600" />}
-              className="absolute -left-4 top-1/4"
-              animation="float"
-              delay={200}
-            />
-            
-            <AnimatedIcon 
-              icon={<Building size={24} className="text-purple-600" />}
-              className="absolute -right-4 top-1/3"
-              animation="float"
-              delay={400}
-            />
-            
-            <AnimatedIcon 
-              icon={<Timer size={24} className="text-green-600" />}
-              className="absolute left-1/4 -bottom-4"
-              animation="float"
-              delay={600}
-            />
-            
-            <AnimatedIcon 
-              icon={<CheckCircle size={24} className="text-amber-600" />}
-              className="absolute right-1/4 -bottom-6"
-              animation="float"
-              delay={800}
-            />
           </div>
         </div>
       </div>
