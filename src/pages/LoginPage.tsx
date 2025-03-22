@@ -46,7 +46,7 @@ const LoginPage = () => {
             <CardHeader className="text-center">
               <CardTitle className="text-2xl font-bold">Welcome Back</CardTitle>
               <CardDescription>
-                Sign in to your TenantBid account
+                Sign in to your mAIntenants account
               </CardDescription>
             </CardHeader>
             
