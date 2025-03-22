@@ -38,7 +38,7 @@ const HeroSection = () => {
               </Button>
             </div>
             
-            {/* New Stats Display component */}
+            {/* Stats Display component */}
             <div className="animate-slide-up" style={{ animationDelay: '300ms' }}>
               <StatsDisplay />
             </div>
