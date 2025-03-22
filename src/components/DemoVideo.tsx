@@ -29,7 +29,7 @@ const DemoVideo = ({ currentStep = 0 }: DemoVideoProps) => {
   }, [recording]);
   
   return (
-    <div className="w-full h-full bg-gray-50">
+    <div className="w-full h-full bg-gray-50 overflow-auto">
       <canvas ref={canvasRef} className="hidden" />
       <div ref={contentRef} className="w-full h-full">
         <DemoVideoContent currentStep={currentStep} />

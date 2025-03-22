@@ -34,36 +34,41 @@ const DemoVideoContent = ({ currentStep = 1 }: DemoVideoContentProps) => {
       setShowCompletion(false);
       setPaymentApproved(false);
     } else if (currentStep === 2) {
-      setRequestReviewed(false);
+      setRequestReviewed(true);
+      setShowBids(false);
+      setBidApproved(false);
+      setShowSchedule(false);
+      setShowCompletion(false);
+      setPaymentApproved(false);
     } else if (currentStep === 3) {
       setRequestReviewed(true);
       setShowBids(true);
       setBidApproved(false);
+      setShowSchedule(false);
+      setShowCompletion(false);
+      setPaymentApproved(false);
     } else if (currentStep === 4) {
       setRequestReviewed(true);
       setShowBids(true);
       setBidApproved(true);
       setShowSchedule(true);
+      setShowCompletion(false);
+      setPaymentApproved(false);
     } else if (currentStep === 5) {
       setRequestReviewed(true);
       setShowBids(true);
       setBidApproved(true);
       setShowSchedule(true);
       setShowCompletion(true);
+      setPaymentApproved(true);
     }
   }, [currentStep]);
 
-  const handleApproveRequest = () => {
-    setRequestReviewed(true);
-  };
-
-  const handleApproveBid = () => {
-    setBidApproved(true);
-  };
-
-  const handleApprovePayment = () => {
-    setPaymentApproved(true);
-  };
+  // These handlers are now just for visual display since actual navigation 
+  // is controlled by the parent component
+  const handleApproveRequest = () => {}
+  const handleApproveBid = () => {}
+  const handleApprovePayment = () => {}
 
   return (
     <div className="bg-white p-6 rounded-xl shadow-md w-full h-full overflow-y-auto">
@@ -75,9 +80,10 @@ const DemoVideoContent = ({ currentStep = 1 }: DemoVideoContentProps) => {
             <div className="flex items-center justify-between mb-8">
               {[
                 { num: 1, text: "Review Request" },
-                { num: 2, text: "Approve Bids" },
-                { num: 3, text: "Confirm Schedule" },
-                { num: 4, text: "Approve Payment" }
+                { num: 2, text: "Approve Request" },
+                { num: 3, text: "Approve Bids" },
+                { num: 4, text: "Confirm Schedule" },
+                { num: 5, text: "Approve Payment" }
               ].map((item, i) => (
                 <div key={i} className="flex flex-col items-center">
                   <div className={`w-10 h-10 rounded-full flex items-center justify-center mb-2 ${
@@ -94,14 +100,14 @@ const DemoVideoContent = ({ currentStep = 1 }: DemoVideoContentProps) => {
             <div className="absolute top-5 left-0 w-full h-0.5 bg-gray-100 -z-10">
               <div 
                 className="h-full bg-primary transition-all duration-1000" 
-                style={{ width: `${(step - 1) * 33.33}%` }}
+                style={{ width: `${(step - 1) * 25}%` }}
               ></div>
             </div>
           </div>
         </div>
 
-        {/* Step 1-2: Incoming Maintenance Request */}
-        {(step <= 2) && (
+        {/* Step 1: Incoming Maintenance Request */}
+        {(step === 1) && (
           <div className="mb-8 animate-fade-in">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-xl font-semibold">New Maintenance Request</h3>
@@ -165,8 +171,71 @@ const DemoVideoContent = ({ currentStep = 1 }: DemoVideoContentProps) => {
           </div>
         )}
 
+        {/* Step 2: Request Approved */}
+        {(step === 2) && (
+          <div className="mb-8 animate-fade-in">
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-xl font-semibold">Maintenance Request Approved</h3>
+              <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">
+                <Check className="h-3.5 w-3.5 mr-1" /> Approved
+              </Badge>
+            </div>
+            <Card>
+              <CardContent className="pt-6">
+                <div className="flex items-start gap-4 mb-4">
+                  <Avatar className="w-12 h-12 border">
+                    <AvatarImage src="" />
+                    <AvatarFallback className="bg-blue-100 text-blue-700">TR</AvatarFallback>
+                  </Avatar>
+                  <div>
+                    <div className="font-medium">Taylor Reynolds - Unit 4B</div>
+                    <div className="text-sm text-gray-500">Birchwood Apartments</div>
+                    <div className="flex items-center mt-1">
+                      <Badge variant="secondary" className="mr-2">Urgent</Badge>
+                      <Badge variant="outline">Plumbing</Badge>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="border-t border-b py-4 my-4">
+                  <h4 className="font-medium mb-2">Issue Description</h4>
+                  <p className="text-gray-700">
+                    The kitchen sink is leaking and water is collecting under the cabinet. It started yesterday and is getting worse. 
+                    There's now a small puddle on the floor.
+                  </p>
+                </div>
+
+                <div className="p-4 bg-gray-50 rounded-lg mb-4">
+                  <div className="flex items-center gap-2 text-green-700 mb-2">
+                    <Check className="h-5 w-5" />
+                    <h4 className="font-medium">Request Approved</h4>
+                  </div>
+                  <p className="text-gray-600">
+                    Your request has been approved and sent to local contractors. You'll receive bids from qualified professionals shortly.
+                  </p>
+                  <div className="mt-3 flex items-center justify-between">
+                    <div className="text-sm text-gray-500">Finding contractors...</div>
+                    <div className="text-sm text-blue-600">3 contractors in your area</div>
+                  </div>
+                </div>
+
+                <div className="flex justify-between mt-4">
+                  <div>
+                    <div className="text-sm text-gray-500">Approved at</div>
+                    <div>Today, 9:30 AM</div>
+                  </div>
+                  <div>
+                    <div className="text-sm text-gray-500">Expected bids</div>
+                    <div>Within 1 hour</div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        )}
+
         {/* Step 3: Bidding Process */}
-        {(showBids || step === 3) && (
+        {(step === 3) && (
           <div className="mb-8 animate-fade-in">
             <h3 className="text-xl font-semibold mb-4">Select Contractor Bid</h3>
             <Card>
@@ -300,7 +369,7 @@ const DemoVideoContent = ({ currentStep = 1 }: DemoVideoContentProps) => {
         )}
 
         {/* Step 4: Scheduling Confirmation */}
-        {(showSchedule || step === 4) && (
+        {(step === 4) && (
           <div className="mb-8 animate-fade-in">
             <h3 className="text-xl font-semibold mb-4">Scheduled Maintenance</h3>
             <Card>
@@ -353,7 +422,7 @@ const DemoVideoContent = ({ currentStep = 1 }: DemoVideoContentProps) => {
         )}
 
         {/* Step 5: Work Completion & Payment Approval */}
-        {(showCompletion || step === 5) && (
+        {(step === 5) && (
           <div className="mb-8 animate-fade-in">
             <h3 className="text-xl font-semibold mb-4">Approve Payment</h3>
             <Card>
