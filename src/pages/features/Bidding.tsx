@@ -1,5 +1,5 @@
 
-import { ArrowDown, Check, Clock, Wallet, BarChart, BadgeDollarSign, ShieldCheck, MessageSquare, Star, Calendar, List, User } from 'lucide-react';
+import { ArrowDown, Check, Clock, Wallet, BarChart, User, Star, Calendar, ShieldCheck, MessageSquare } from 'lucide-react';
 import PageTemplate from '@/components/PageTemplate';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
@@ -13,14 +13,14 @@ const Bidding = () => {
       <div className="mb-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
           <div>
-            <h2 className="text-2xl font-semibold mb-6">How Our Bidding Works</h2>
+            <h2 className="text-2xl font-semibold mb-6">The Bidding Process</h2>
             <div className="space-y-8">
               <div className="flex items-start space-x-4">
                 <div className="bg-blue-100 p-3 rounded-full">
                   <Clock className="h-6 w-6 text-blue-700" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-medium mb-2">Instant Notifications</h3>
+                  <h3 className="text-lg font-medium mb-2">Step 1: Request Distribution</h3>
                   <p className="text-gray-600">
                     When a maintenance request is approved, our system immediately notifies qualified contractors in the area.
                   </p>
@@ -32,9 +32,9 @@ const Bidding = () => {
                   <Wallet className="h-6 w-6 text-purple-700" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-medium mb-2">Competitive Pricing</h3>
+                  <h3 className="text-lg font-medium mb-2">Step 2: Contractor Bidding</h3>
                   <p className="text-gray-600">
-                    Contractors submit their bids, knowing they're competing against others, which naturally drives better pricing.
+                    Contractors submit their competitive bids, including price, availability, and any relevant notes.
                   </p>
                 </div>
               </div>
@@ -44,104 +44,22 @@ const Bidding = () => {
                   <BarChart className="h-6 w-6 text-green-700" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-medium mb-2">Smart Ranking</h3>
+                  <h3 className="text-lg font-medium mb-2">Step 3: Smart Ranking</h3>
                   <p className="text-gray-600">
-                    Our algorithm ranks bids based on price, contractor ratings, response time, and availability to recommend the best option.
+                    Our algorithm ranks bids based on price, contractor ratings, response time, and availability.
                   </p>
                 </div>
               </div>
-            </div>
-          </div>
-          
-          <div className="bg-gray-50 rounded-xl p-8 relative overflow-hidden">
-            <div className="absolute -top-10 -right-10 w-40 h-40 bg-blue-50 rounded-full opacity-70"></div>
-            <div className="relative z-10">
-              <h3 className="text-xl font-semibold mb-6">The Bidding Process</h3>
-              
-              <div className="space-y-6">
-                <div className="bg-white p-4 rounded-lg shadow-sm">
-                  <div className="flex justify-between items-center mb-3">
-                    <span className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Step 1</span>
-                    <ArrowDown className="h-5 w-5 text-gray-400" />
-                  </div>
-                  <p className="text-gray-700">Request is approved and automatically sent to qualified contractors</p>
-                </div>
-                
-                <div className="bg-white p-4 rounded-lg shadow-sm">
-                  <div className="flex justify-between items-center mb-3">
-                    <span className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Step 2</span>
-                    <ArrowDown className="h-5 w-5 text-gray-400" />
-                  </div>
-                  <p className="text-gray-700">Contractors review job details and submit their competitive bids</p>
-                </div>
-                
-                <div className="bg-white p-4 rounded-lg shadow-sm">
-                  <div className="flex justify-between items-center mb-3">
-                    <span className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Step 3</span>
-                    <ArrowDown className="h-5 w-5 text-gray-400" />
-                  </div>
-                  <p className="text-gray-700">System ranks bids and presents the best options to property owners</p>
-                </div>
-                
-                <div className="bg-white p-4 rounded-lg shadow-sm">
-                  <div className="flex justify-between items-center mb-3">
-                    <span className="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Complete</span>
-                    <Check className="h-5 w-5 text-green-500" />
-                  </div>
-                  <p className="text-gray-700">Owner approves bid and scheduling begins automatically</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <div className="mb-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-          <div>
-            <h2 className="text-2xl font-semibold mb-4">Landlord Bid Management</h2>
-            <p className="text-gray-600 mb-6">
-              As a landlord, you'll receive ranked bids for all maintenance requests. Our smart algorithm considers pricing, contractor ratings, and response times to recommend the best option.
-            </p>
-            
-            <div className="space-y-4">
-              <div className="flex items-start space-x-3">
-                <div className="text-blue-600 mt-0.5">
-                  <List className="h-5 w-5" />
+              <div className="flex items-start space-x-4">
+                <div className="bg-amber-100 p-3 rounded-full">
+                  <Check className="h-6 w-6 text-amber-700" />
                 </div>
                 <div>
-                  <h4 className="font-medium">Transparent Bid Comparison</h4>
-                  <p className="text-sm text-gray-600">See all bids side-by-side with key information highlighted</p>
-                </div>
-              </div>
-              
-              <div className="flex items-start space-x-3">
-                <div className="text-blue-600 mt-0.5">
-                  <ShieldCheck className="h-5 w-5" />
-                </div>
-                <div>
-                  <h4 className="font-medium">Verified Contractors Only</h4>
-                  <p className="text-sm text-gray-600">All bidding contractors are pre-vetted and insured</p>
-                </div>
-              </div>
-              
-              <div className="flex items-start space-x-3">
-                <div className="text-blue-600 mt-0.5">
-                  <BadgeDollarSign className="h-5 w-5" />
-                </div>
-                <div>
-                  <h4 className="font-medium">Best Price Guarantee</h4>
-                  <p className="text-sm text-gray-600">Competitive bidding ensures you get the best market rates</p>
-                </div>
-              </div>
-              
-              <div className="flex items-start space-x-3">
-                <div className="text-blue-600 mt-0.5">
-                  <MessageSquare className="h-5 w-5" />
-                </div>
-                <div>
-                  <h4 className="font-medium">Direct Communication</h4>
-                  <p className="text-sm text-gray-600">Message contractors directly to ask questions before accepting</p>
+                  <h3 className="text-lg font-medium mb-2">Step 4: Selection & Scheduling</h3>
+                  <p className="text-gray-600">
+                    Owner approves the best bid with one click, and scheduling begins automatically.
+                  </p>
                 </div>
               </div>
             </div>
