@@ -1,4 +1,3 @@
-
 import { ArrowRight, Bell, MessageSquare, ListCheck, DollarSign, Play } from 'lucide-react';
 import PageTemplate from '@/components/PageTemplate';
 import { Button } from '@/components/ui/button';
@@ -22,9 +21,10 @@ const LandlordsProcess = () => {
     }
   };
 
-  const handleResetDemo = () => {
-    setDemoPlaying(false);
-    setCurrentStep(0);
+  const handlePreviousStep = () => {
+    if (currentStep > 1) {
+      setCurrentStep(currentStep - 1);
+    }
   };
 
   const steps = [
@@ -94,13 +94,14 @@ const LandlordsProcess = () => {
               <Card className="border-none shadow-none">
                 <CardContent className="p-0">
                   <div className="bg-gray-50 rounded-lg h-[600px] overflow-hidden relative">
-                    <VideoPlayer playing={demoPlaying} currentStep={currentStep} />
+                    <VideoPlayer 
+                      playing={demoPlaying} 
+                      currentStep={currentStep} 
+                      onNext={handleNextStep}
+                      onPrevious={handlePreviousStep}
+                    />
                     
                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 flex justify-between items-center">
-                      <Button variant="outline" onClick={handleResetDemo} className="text-white border-white hover:bg-white/20">
-                        Reset Demo
-                      </Button>
-                      
                       <div className="flex gap-1">
                         {[1, 2, 3, 4, 5].map((step) => (
                           <div 
@@ -111,10 +112,6 @@ const LandlordsProcess = () => {
                           />
                         ))}
                       </div>
-                      
-                      <Button onClick={handleNextStep} disabled={currentStep >= 5}>
-                        Next Step
-                      </Button>
                     </div>
                   </div>
                 </CardContent>
