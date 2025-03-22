@@ -9,14 +9,23 @@ import { Label } from '@/components/ui/label';
 import { Badge } from '@/components/ui/badge';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
-const DemoVideoContent = () => {
-  const [step, setStep] = useState(1);
+interface DemoVideoContentProps {
+  currentStep?: number;
+}
+
+const DemoVideoContent = ({ currentStep = 1 }: DemoVideoContentProps) => {
+  const [step, setStep] = useState(currentStep);
   const [requestReviewed, setRequestReviewed] = useState(false);
   const [showBids, setShowBids] = useState(false);
   const [bidApproved, setBidApproved] = useState(false);
   const [showSchedule, setShowSchedule] = useState(false);
   const [showCompletion, setShowCompletion] = useState(false);
   const [paymentApproved, setPaymentApproved] = useState(false);
+
+  // Update step when currentStep prop changes
+  useEffect(() => {
+    setStep(currentStep);
+  }, [currentStep]);
 
   useEffect(() => {
     let timer: NodeJS.Timeout;
