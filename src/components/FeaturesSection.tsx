@@ -28,7 +28,7 @@ const FeaturesSection = () => {
   }, []);
   
   return (
-    <section id="features" className="py-20 px-6 lg:px-0 relative overflow-hidden">
+    <section id="features" className="py-12 px-6 lg:px-0 relative overflow-hidden">
       {/* Background decorations */}
       <div className="absolute left-0 top-1/4 w-full h-96 bg-gradient-to-r from-blue-50 to-transparent opacity-70 -skew-y-3 z-0"></div>
       

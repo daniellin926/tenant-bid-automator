@@ -5,7 +5,7 @@ import StatsDisplay from './StatsDisplay';
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen pt-28 pb-20 px-6 lg:px-0 overflow-hidden">
+    <section className="relative min-h-screen pt-28 pb-12 px-6 lg:px-0 overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-radial from-blue-50 to-transparent opacity-70 z-0"></div>
       
@@ -42,7 +42,7 @@ const HeroSection = () => {
           </div>
           
           {/* Stats Display component */}
-          <div className="animate-slide-up mt-12 w-full max-w-3xl" style={{
+          <div className="animate-slide-up mt-8 w-full max-w-3xl" style={{
             animationDelay: '300ms'
           }}>
             <StatsDisplay />
