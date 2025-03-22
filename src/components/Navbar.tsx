@@ -153,27 +153,6 @@ const Navbar = () => {
                         </Link>
                       </NavigationMenuLink>
                     </li>
-                    <li className="md:col-span-2">
-                      <div className="mt-2 pt-2 border-t">
-                        <div className="text-sm font-medium leading-none mb-2">Landlord Demo Video</div>
-                        <div 
-                          className="rounded-md overflow-hidden cursor-pointer hover:opacity-90 transition-opacity"
-                          onClick={() => setIsVideoOpen(true)}
-                        >
-                          <div className="relative aspect-video bg-gray-100 flex items-center justify-center">
-                            <div className="absolute inset-0 flex items-center justify-center">
-                              <div className="h-16 w-16 rounded-full bg-primary/90 flex items-center justify-center">
-                                <div className="w-0 h-0 border-t-8 border-b-8 border-l-14 border-transparent border-l-white ml-1"></div>
-                              </div>
-                            </div>
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-                            <div className="absolute bottom-3 left-3 text-white font-medium">
-                              Landlord Dashboard Demo
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </li>
                   </ul>
                 </NavigationMenuContent>
               </NavigationMenuItem>
