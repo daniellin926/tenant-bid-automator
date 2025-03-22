@@ -1,10 +1,32 @@
 
-import { ArrowRight, Bell, MessageSquare, ListCheck, DollarSign } from 'lucide-react';
+import { ArrowRight, Bell, MessageSquare, ListCheck, DollarSign, Play } from 'lucide-react';
 import PageTemplate from '@/components/PageTemplate';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import VideoPlayer from '@/components/VideoPlayer';
+import { Card, CardContent } from '@/components/ui/card';
 
 const LandlordsProcess = () => {
+  const [demoPlaying, setDemoPlaying] = useState(false);
+  const [currentStep, setCurrentStep] = useState(0);
+
+  const handleStartDemo = () => {
+    setDemoPlaying(true);
+    setCurrentStep(1);
+  };
+
+  const handleNextStep = () => {
+    if (currentStep < 5) {
+      setCurrentStep(currentStep + 1);
+    }
+  };
+
+  const handleResetDemo = () => {
+    setDemoPlaying(false);
+    setCurrentStep(0);
+  };
+
   const steps = [
     {
       title: "Approve or deny requests",
@@ -44,6 +66,78 @@ const LandlordsProcess = () => {
               <p className="text-gray-600">{step.description}</p>
             </div>
           ))}
+        </div>
+      </div>
+      
+      {/* Interactive Demo Section */}
+      <div className="bg-white rounded-xl shadow-md overflow-hidden mb-16">
+        <div className="p-6">
+          <h2 className="text-2xl font-semibold mb-4">Interactive Demo: Experience The Landlord Journey</h2>
+          <p className="text-gray-600 mb-6">
+            Walk through the entire maintenance request process from a landlord's perspective. 
+            See how easy it is to manage maintenance requests, approve bids, and process payments.
+          </p>
+          
+          {!demoPlaying ? (
+            <div className="flex justify-center">
+              <Button 
+                onClick={handleStartDemo} 
+                size="lg" 
+                className="flex items-center gap-2"
+              >
+                <Play className="h-5 w-5" />
+                Start Interactive Demo
+              </Button>
+            </div>
+          ) : (
+            <div className="space-y-6">
+              <Card className="border-none shadow-none">
+                <CardContent className="p-0">
+                  <div className="bg-gray-50 rounded-lg h-[600px] overflow-hidden relative">
+                    <VideoPlayer playing={demoPlaying} currentStep={currentStep} />
+                    
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 flex justify-between items-center">
+                      <Button variant="outline" onClick={handleResetDemo} className="text-white border-white hover:bg-white/20">
+                        Reset Demo
+                      </Button>
+                      
+                      <div className="flex gap-1">
+                        {[1, 2, 3, 4, 5].map((step) => (
+                          <div 
+                            key={step} 
+                            className={`w-2.5 h-2.5 rounded-full ${
+                              currentStep >= step ? 'bg-primary' : 'bg-white/50'
+                            }`}
+                          />
+                        ))}
+                      </div>
+                      
+                      <Button onClick={handleNextStep} disabled={currentStep >= 5}>
+                        Next Step
+                      </Button>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+              
+              <div className="bg-gray-50 rounded-lg p-4">
+                <h3 className="font-medium mb-2">
+                  {currentStep === 1 && "Step 1: Review Maintenance Request"}
+                  {currentStep === 2 && "Step 2: Approve the Request"}
+                  {currentStep === 3 && "Step 3: Select Contractor Bid"}
+                  {currentStep === 4 && "Step 4: Confirm Scheduled Appointment"}
+                  {currentStep === 5 && "Step 5: Approve Payment After Completion"}
+                </h3>
+                <p className="text-gray-600 text-sm">
+                  {currentStep === 1 && "You'll receive instant notifications when tenants submit maintenance requests. Review all details including images and urgency level."}
+                  {currentStep === 2 && "Quickly approve appropriate requests or request more information if needed. Our AI helps prioritize requests based on urgency."}
+                  {currentStep === 3 && "View multiple bids from qualified contractors with transparent pricing and reviews. Select the best option for your property."}
+                  {currentStep === 4 && "Once a bid is approved, scheduling happens automatically. You'll be notified of the confirmed appointment time."}
+                  {currentStep === 5 && "After job completion, review the work details and approve payment. All documentation is stored for your records."}
+                </p>
+              </div>
+            </div>
+          )}
         </div>
       </div>
       

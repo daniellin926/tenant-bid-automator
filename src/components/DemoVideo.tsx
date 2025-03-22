@@ -2,7 +2,11 @@
 import { useRef, useEffect, useState } from 'react';
 import DemoVideoContent from './DemoVideoContent';
 
-const DemoVideo = () => {
+interface DemoVideoProps {
+  currentStep?: number;
+}
+
+const DemoVideo = ({ currentStep = 0 }: DemoVideoProps) => {
   const [recording, setRecording] = useState<MediaRecorder | null>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -28,7 +32,7 @@ const DemoVideo = () => {
     <div className="w-full h-full bg-gray-50">
       <canvas ref={canvasRef} className="hidden" />
       <div ref={contentRef} className="w-full h-full">
-        <DemoVideoContent />
+        <DemoVideoContent currentStep={currentStep} />
       </div>
     </div>
   );

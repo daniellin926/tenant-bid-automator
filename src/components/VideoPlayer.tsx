@@ -4,10 +4,11 @@ import DemoVideo from './DemoVideo';
 
 interface VideoPlayerProps {
   playing: boolean;
+  currentStep?: number;
   onEnded?: () => void;
 }
 
-const VideoPlayer = ({ playing, onEnded }: VideoPlayerProps) => {
+const VideoPlayer = ({ playing, currentStep = 0, onEnded }: VideoPlayerProps) => {
   const [demoStarted, setDemoStarted] = useState(false);
   
   useEffect(() => {
@@ -15,9 +16,9 @@ const VideoPlayer = ({ playing, onEnded }: VideoPlayerProps) => {
       setDemoStarted(true);
     }
     
-    // Simulate video ending after 30 seconds
+    // Only set up auto-ending timer if no manual step control is provided
     let timer: NodeJS.Timeout;
-    if (playing && onEnded) {
+    if (playing && onEnded && !currentStep) {
       timer = setTimeout(() => {
         onEnded();
       }, 30000); // 30 seconds demo
@@ -26,11 +27,11 @@ const VideoPlayer = ({ playing, onEnded }: VideoPlayerProps) => {
     return () => {
       if (timer) clearTimeout(timer);
     };
-  }, [playing, onEnded, demoStarted]);
+  }, [playing, onEnded, demoStarted, currentStep]);
 
   return (
     <div className="relative w-full h-full bg-white">
-      {demoStarted && <DemoVideo />}
+      {demoStarted && <DemoVideo currentStep={currentStep} />}
     </div>
   );
 };
