@@ -12,10 +12,12 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
+import VideoPlayer from './VideoPlayer';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
   
   useEffect(() => {
     const handleScroll = () => {
@@ -120,7 +122,7 @@ const Navbar = () => {
                   isScrolled ? "text-gray-800" : "text-gray-700"
                 )}>How It Works</NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <ul className="grid w-[400px] gap-3 p-4 md:grid-cols-1">
+                  <ul className="grid w-[600px] gap-3 p-4 md:grid-cols-2">
                     <li>
                       <NavigationMenuLink asChild>
                         <Link to="/process/tenants" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
@@ -150,6 +152,27 @@ const Navbar = () => {
                           </p>
                         </Link>
                       </NavigationMenuLink>
+                    </li>
+                    <li className="md:col-span-2">
+                      <div className="mt-2 pt-2 border-t">
+                        <div className="text-sm font-medium leading-none mb-2">Landlord Demo Video</div>
+                        <div 
+                          className="rounded-md overflow-hidden cursor-pointer hover:opacity-90 transition-opacity"
+                          onClick={() => setIsVideoOpen(true)}
+                        >
+                          <div className="relative aspect-video bg-gray-100 flex items-center justify-center">
+                            <div className="absolute inset-0 flex items-center justify-center">
+                              <div className="h-16 w-16 rounded-full bg-primary/90 flex items-center justify-center">
+                                <div className="w-0 h-0 border-t-8 border-b-8 border-l-14 border-transparent border-l-white ml-1"></div>
+                              </div>
+                            </div>
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                            <div className="absolute bottom-3 left-3 text-white font-medium">
+                              Landlord Dashboard Demo
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </li>
                   </ul>
                 </NavigationMenuContent>
@@ -248,6 +271,21 @@ const Navbar = () => {
                 <Link to="/signup" onClick={toggleMobileMenu}>Get Started</Link>
               </Button>
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* Video Dialog */}
+      {isVideoOpen && (
+        <div className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4 animate-fade-in">
+          <div className="relative w-full max-w-5xl aspect-video bg-black rounded-lg overflow-hidden">
+            <button 
+              className="absolute top-4 right-4 z-10 rounded-full h-10 w-10 flex items-center justify-center bg-black/50 text-white hover:bg-black/70"
+              onClick={() => setIsVideoOpen(false)}
+            >
+              <X className="h-5 w-5" />
+            </button>
+            <VideoPlayer playing={isVideoOpen} onEnded={() => setIsVideoOpen(false)} />
           </div>
         </div>
       )}

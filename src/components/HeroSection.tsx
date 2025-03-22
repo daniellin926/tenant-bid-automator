@@ -1,12 +1,9 @@
+
 import { ArrowRight, Building, Wrench, Timer, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import AnimatedIcon from './AnimatedIcon';
 
-interface HeroSectionProps {
-  onWatchDemo?: () => void;
-}
-
-const HeroSection = ({ onWatchDemo }: HeroSectionProps) => {
+const HeroSection = () => {
   return (
     <section className="relative min-h-screen pt-28 pb-20 px-6 lg:px-0 overflow-hidden">
       {/* Background gradient */}
@@ -38,13 +35,6 @@ const HeroSection = ({ onWatchDemo }: HeroSectionProps) => {
               <Button className="rounded-full py-6 px-7 text-base bg-primary hover:bg-primary/90 transition-all shadow-md hover:shadow-lg group">
                 Start Free Trial
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button 
-                variant="outline" 
-                className="rounded-full py-6 px-7 text-base"
-                onClick={onWatchDemo}
-              >
-                Watch Demo
               </Button>
             </div>
             
