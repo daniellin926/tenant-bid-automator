@@ -1,3 +1,4 @@
+
 import { ArrowRight, Bell, MessageSquare, ListCheck, DollarSign, Play } from 'lucide-react';
 import PageTemplate from '@/components/PageTemplate';
 import { Button } from '@/components/ui/button';
@@ -35,7 +36,7 @@ const LandlordsProcess = () => {
     },
     {
       title: "Review estimates",
-      description: "TenantBid automatically collects estimates and schedules time with tenants. Simply review and approve recommended estimates or select alternate bids.",
+      description: "mAIntenants automatically collects estimates and schedules time with tenants. Simply review and approve recommended estimates or select alternate bids.",
       icon: <ListCheck className="h-10 w-10 text-purple-500" />
     },
     {
@@ -128,7 +129,7 @@ const LandlordsProcess = () => {
                 <p className="text-gray-600 text-sm">
                   {currentStep === 1 && "You'll receive instant notifications when tenants submit maintenance requests. Review all details including images and urgency level."}
                   {currentStep === 2 && "Quickly approve appropriate requests or request more information if needed. Our AI helps prioritize requests based on urgency."}
-                  {currentStep === 3 && "View multiple bids from qualified contractors with transparent pricing and reviews. Select the best option for your property."}
+                  {currentStep === 3 && "View multiple bids from qualified contractors with transparent pricing, availability dates, and reviews. Select the best option for your property."}
                   {currentStep === 4 && "Once a bid is approved, scheduling happens automatically. You'll be notified of the confirmed appointment time."}
                   {currentStep === 5 && "After job completion, review the work details and approve payment. All documentation is stored for your records."}
                 </p>
@@ -183,7 +184,7 @@ const LandlordsProcess = () => {
             <h3 className="text-xl font-semibold mb-4">What landlords are saying</h3>
             <blockquote className="mb-6">
               "I used to spend hours coordinating repairs between tenants and contractors. 
-              With TenantBid, it's all automated. My phone only buzzes when I need to approve something!"
+              With mAIntenants, it's all automated. My phone only buzzes when I need to approve something!"
               <footer className="mt-2 font-medium">— Michael R., Property Owner</footer>
             </blockquote>
             <Button variant="outline" className="text-white border-white hover:bg-white/10" asChild>
