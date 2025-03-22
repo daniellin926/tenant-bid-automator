@@ -1,5 +1,6 @@
+
 import { useEffect, useState } from 'react';
-import { ArrowRight, Clock, Wallet, BarChart, Check, CalendarCheck, MessageSquare, ShieldCheck, BellRing, DollarSign, Upload, Camera, Star, ThumbsUp } from 'lucide-react';
+import { ArrowRight, Clock, Wallet, BarChart, Check, CalendarCheck, MessageSquare, ShieldCheck, BellRing, Upload, Camera, Star, ThumbsUp } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
@@ -640,7 +641,7 @@ const DemoVideoContent = ({ currentStep = 1 }: DemoVideoContentProps) => {
     );
   }
 
-  // Add the landlord journey UI here
+  // Landlord journey UI
   return (
     <div className="bg-white p-6 rounded-xl shadow-md w-full h-full overflow-y-auto">
       <div className="mx-auto max-w-4xl">
@@ -764,4 +765,398 @@ const DemoVideoContent = ({ currentStep = 1 }: DemoVideoContentProps) => {
                       <BellRing className="h-4 w-4" />
                     </div>
                     <div>
-                      <h4 className="font-medium
+                      <h4 className="font-medium">Request #472: Plumbing Issue - Kitchen Sink</h4>
+                      <div className="text-sm text-gray-500 mt-1">Submitted Today, 2:42 PM</div>
+                    </div>
+                  </div>
+                </div>
+                
+                <h4 className="font-medium mb-3">Contractor Bids</h4>
+                <p className="text-sm text-gray-600 mb-4">
+                  Select a contractor to fix the issue. Contractors are sorted by availability and rating.
+                </p>
+                
+                <div className="space-y-4">
+                  <div className="border rounded-md p-4">
+                    <div className="flex justify-between items-start mb-3">
+                      <div className="flex items-start gap-3">
+                        <Avatar className="w-10 h-10 border">
+                          <AvatarImage src="" />
+                          <AvatarFallback className="bg-blue-100 text-blue-700">BP</AvatarFallback>
+                        </Avatar>
+                        <div>
+                          <div className="font-medium">Bob's Plumbing</div>
+                          <div className="flex items-center text-xs mt-1">
+                            <span className="mr-1 text-amber-500">★★★★★</span>
+                            <span className="text-gray-500">(127 jobs)</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="flex flex-col items-end">
+                        <Badge variant="outline" className="mb-1 bg-blue-50 text-blue-700">Available Today</Badge>
+                        <span className="font-medium">85</span>
+                      </div>
+                    </div>
+                    
+                    <div className="text-sm text-gray-600 mb-3">
+                      "Kitchen sink leak repair. Will include replacement of drain assembly and seals if needed."
+                    </div>
+                    
+                    <div className="text-sm font-medium flex items-center justify-between">
+                      <span className="text-gray-600">Standard rate</span>
+                      <Button size="sm" onClick={handleApproveBid}>Approve Bid</Button>
+                    </div>
+                  </div>
+                  
+                  <div className="border rounded-md p-4">
+                    <div className="flex justify-between items-start mb-3">
+                      <div className="flex items-start gap-3">
+                        <Avatar className="w-10 h-10 border">
+                          <AvatarImage src="" />
+                          <AvatarFallback className="bg-gray-100">PP</AvatarFallback>
+                        </Avatar>
+                        <div>
+                          <div className="font-medium">Pro Plumbing Services</div>
+                          <div className="flex items-center text-xs mt-1">
+                            <span className="mr-1 text-amber-500">★★★★★</span>
+                            <span className="text-gray-500">(82 jobs)</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="flex flex-col items-end">
+                        <Badge variant="outline" className="mb-1 bg-blue-50 text-blue-700">Available Tomorrow</Badge>
+                        <span className="font-medium">95</span>
+                      </div>
+                    </div>
+                    
+                    <div className="text-sm text-gray-600 mb-3">
+                      "Complete kitchen sink repair with 1-year warranty on parts and labor."
+                    </div>
+                    
+                    <div className="text-sm font-medium flex items-center justify-between">
+                      <span className="text-gray-600">Premium service</span>
+                      <Button size="sm" variant="outline">Approve Bid</Button>
+                    </div>
+                  </div>
+                  
+                  <div className="border rounded-md p-4">
+                    <div className="flex justify-between items-start mb-3">
+                      <div className="flex items-start gap-3">
+                        <Avatar className="w-10 h-10 border">
+                          <AvatarImage src="" />
+                          <AvatarFallback className="bg-gray-100">QP</AvatarFallback>
+                        </Avatar>
+                        <div>
+                          <div className="font-medium">Quick Plumbing Fix</div>
+                          <div className="flex items-center text-xs mt-1">
+                            <span className="mr-1 text-amber-500">★★★★</span>
+                            <span className="text-gray-500">(43 jobs)</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="flex flex-col items-end">
+                        <Badge variant="outline" className="mb-1 bg-blue-50 text-blue-700">Available Friday</Badge>
+                        <span className="font-medium">75</span>
+                      </div>
+                    </div>
+                    
+                    <div className="text-sm text-gray-600 mb-3">
+                      "Basic sink repair service. Additional charges may apply for parts."
+                    </div>
+                    
+                    <div className="text-sm font-medium flex items-center justify-between">
+                      <span className="text-gray-600">Economy option</span>
+                      <Button size="sm" variant="outline">Approve Bid</Button>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        )}
+
+        {/* Step 3: Approve Bid */}
+        {(step === 3) && (
+          <div className="mb-8 animate-fade-in">
+            <h3 className="text-xl font-semibold mb-4">Contractor Approved</h3>
+            <Card>
+              <CardContent className="pt-6">
+                <div className="flex items-start gap-4 mb-6">
+                  <div className="bg-green-100 p-3 rounded-full">
+                    <Check className="h-6 w-6 text-green-700" />
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-lg">Bid Approved</h4>
+                    <p className="text-gray-600">
+                      You've approved Bob's Plumbing to fix the kitchen sink issue in Apartment 4B.
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="border-t pt-4 mb-6">
+                  <div className="flex items-center justify-between mb-4">
+                    <h5 className="font-medium">Bid Details</h5>
+                    <Badge variant="outline" className="bg-green-50 text-green-700">
+                      Approved
+                    </Badge>
+                  </div>
+                  
+                  <div className="bg-gray-50 p-4 rounded-md mb-4">
+                    <div className="flex justify-between items-start mb-3">
+                      <div className="flex items-start gap-3">
+                        <Avatar className="w-10 h-10 border">
+                          <AvatarImage src="" />
+                          <AvatarFallback className="bg-blue-100 text-blue-700">BP</AvatarFallback>
+                        </Avatar>
+                        <div>
+                          <div className="font-medium">Bob's Plumbing</div>
+                          <div className="flex items-center text-xs mt-1">
+                            <span className="mr-1 text-amber-500">★★★★★</span>
+                            <span className="text-gray-500">(127 jobs)</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="flex flex-col items-end">
+                        <Badge variant="outline" className="mb-1 bg-blue-50 text-blue-700">Available Today</Badge>
+                        <span className="font-medium">85</span>
+                      </div>
+                    </div>
+                    
+                    <div className="text-sm text-gray-600 mb-3">
+                      "Kitchen sink leak repair. Will include replacement of drain assembly and seals if needed."
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="border-t pt-4">
+                  <h5 className="font-medium mb-3">Next Steps</h5>
+                  <div className="space-y-3">
+                    <div className="flex items-start gap-3">
+                      <div className="w-7 h-7 bg-green-100 rounded-full flex items-center justify-center text-green-700">
+                        <Check className="h-4 w-4" />
+                      </div>
+                      <div>
+                        <div className="font-medium">Contractor notified</div>
+                        <div className="text-sm text-gray-500">Bob's Plumbing has been notified of your approval</div>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-start gap-3">
+                      <div className="w-7 h-7 bg-blue-100 rounded-full flex items-center justify-center text-blue-700">
+                        <Clock className="h-4 w-4" />
+                      </div>
+                      <div>
+                        <div className="font-medium">Tenant scheduling</div>
+                        <div className="text-sm text-gray-500">John Smith will select a convenient time</div>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-start gap-3">
+                      <div className="w-7 h-7 bg-gray-100 rounded-full flex items-center justify-center text-gray-400">
+                        <ShieldCheck className="h-4 w-4" />
+                      </div>
+                      <div>
+                        <div className="font-medium">Repair completion</div>
+                        <div className="text-sm text-gray-500">You'll be notified when the repair is complete</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        )}
+
+        {/* Step 4: Monitor Repair */}
+        {(step === 4) && (
+          <div className="mb-8 animate-fade-in">
+            <h3 className="text-xl font-semibold mb-4">Repair in Progress</h3>
+            <Card>
+              <CardContent className="pt-6">
+                <div className="border-b pb-4 mb-4">
+                  <div className="flex items-start gap-3">
+                    <Avatar className="w-12 h-12 border">
+                      <AvatarImage src="" />
+                      <AvatarFallback className="bg-blue-100 text-blue-700">BP</AvatarFallback>
+                    </Avatar>
+                    <div>
+                      <div className="font-medium text-lg">Bob's Plumbing</div>
+                      <div className="flex items-center text-sm mt-1">
+                        <span className="mr-1 text-amber-500">★★★★★</span>
+                        <span className="text-gray-500">(127 jobs)</span>
+                      </div>
+                      <div className="mt-1 text-sm text-gray-500">
+                        <span className="text-blue-600 font-medium">Currently repairing</span> kitchen sink in Apartment 4B
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="mb-6">
+                  <h4 className="font-medium mb-3">Repair Timeline</h4>
+                  <div className="space-y-4">
+                    <div className="flex gap-3">
+                      <div className="w-7 h-7 bg-green-100 rounded-full flex items-center justify-center text-green-700">
+                        <Check className="h-4 w-4" />
+                      </div>
+                      <div>
+                        <div className="font-medium text-sm">Bid approved</div>
+                        <div className="text-xs text-gray-500">Today, 3:15 PM</div>
+                      </div>
+                    </div>
+                    
+                    <div className="flex gap-3">
+                      <div className="w-7 h-7 bg-green-100 rounded-full flex items-center justify-center text-green-700">
+                        <Check className="h-4 w-4" />
+                      </div>
+                      <div>
+                        <div className="font-medium text-sm">Tenant scheduled appointment</div>
+                        <div className="text-xs text-gray-500">Today, 3:30 PM</div>
+                      </div>
+                    </div>
+                    
+                    <div className="flex gap-3">
+                      <div className="w-7 h-7 bg-green-100 rounded-full flex items-center justify-center text-green-700">
+                        <Check className="h-4 w-4" />
+                      </div>
+                      <div>
+                        <div className="font-medium text-sm">Contractor arrived</div>
+                        <div className="text-xs text-gray-500">Today, 4:10 PM</div>
+                      </div>
+                    </div>
+                    
+                    <div className="flex gap-3">
+                      <div className="w-7 h-7 bg-blue-100 rounded-full flex items-center justify-center text-blue-700">
+                        <Clock className="h-4 w-4" />
+                      </div>
+                      <div>
+                        <div className="font-medium text-sm">Repair in progress</div>
+                        <div className="text-xs text-gray-500">Current status</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="border-t pt-4">
+                  <h4 className="font-medium mb-3">Repair Details</h4>
+                  <div className="p-4 bg-gray-50 rounded-md mb-4">
+                    <div className="flex justify-between border-b pb-3 mb-3">
+                      <span className="text-gray-600">Estimated completion</span>
+                      <span className="font-medium">Today, 5:00 PM</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Bid amount</span>
+                      <span className="font-medium">85</span>
+                    </div>
+                  </div>
+                  
+                  <div className="p-4 bg-blue-50 rounded-md border border-blue-200">
+                    <h5 className="font-medium text-blue-800 mb-2">Contractor Notes</h5>
+                    <p className="text-sm text-gray-600">
+                      "I've identified the issue with the kitchen sink. The P-trap connection is loose and the drain 
+                      assembly needs to be replaced. I have the parts with me and am working on the repair now."
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        )}
+
+        {/* Step 5: Approve Payment */}
+        {(step === 5) && (
+          <div className="mb-8 animate-fade-in">
+            <h3 className="text-xl font-semibold mb-4">Repair Completed</h3>
+            <Card>
+              <CardContent className="pt-6">
+                <div className="flex items-start gap-4 mb-6">
+                  <div className="bg-green-100 p-3 rounded-full">
+                    <Check className="h-6 w-6 text-green-700" />
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-lg">Repair Completed Successfully</h4>
+                    <p className="text-gray-600">
+                      Bob's Plumbing has fixed the kitchen sink in Apartment 4B.
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="p-4 bg-green-50 rounded-md border border-green-200 mb-6">
+                  <div className="flex items-center gap-2 mb-2">
+                    <MessageSquare className="h-4 w-4 text-green-700" />
+                    <h5 className="font-medium text-green-800">Contractor Report</h5>
+                  </div>
+                  <p className="text-sm text-gray-600">
+                    "Replaced the sink drain assembly and P-trap. Tightened all connections and tested thoroughly. 
+                    No leaks detected after 10 minutes of water flow testing. Job complete."
+                  </p>
+                </div>
+                
+                <div className="border-t pt-4 mb-6">
+                  <h4 className="font-medium mb-3">Payment Details</h4>
+                  <div className="p-4 bg-gray-50 rounded-md mb-4">
+                    <div className="space-y-3">
+                      <div className="flex justify-between">
+                        <span className="text-gray-600">Service fee</span>
+                        <span>85</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-gray-600">Parts (drain assembly)</span>
+                        <span>25</span>
+                      </div>
+                      <div className="flex justify-between font-medium pt-2 border-t">
+                        <span>Total</span>
+                        <span>110</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {!paymentApproved ? (
+                    <div className="flex justify-end">
+                      <Button onClick={handleApprovePayment}>
+                        <Wallet className="h-4 w-4 mr-2" />
+                        Approve Payment
+                      </Button>
+                    </div>
+                  ) : (
+                    <div className="p-4 bg-green-50 rounded-md border border-green-200">
+                      <div className="flex items-center gap-2">
+                        <Check className="h-5 w-5 text-green-700" />
+                        <h5 className="font-medium text-green-800">Payment Approved</h5>
+                      </div>
+                      <p className="text-sm text-gray-600 mt-1">
+                        Payment of $110 has been approved and will be processed automatically.
+                      </p>
+                    </div>
+                  )}
+                </div>
+                
+                <div className="border-t pt-4">
+                  <h4 className="font-medium mb-3">Tenant Feedback</h4>
+                  <div className="p-4 bg-gray-50 rounded-md">
+                    <div className="flex items-center mb-2">
+                      <Star className="h-5 w-5 text-amber-400 fill-amber-400" />
+                      <Star className="h-5 w-5 text-amber-400 fill-amber-400" />
+                      <Star className="h-5 w-5 text-amber-400 fill-amber-400" />
+                      <Star className="h-5 w-5 text-amber-400 fill-amber-400" />
+                      <Star className="h-5 w-5 text-amber-400 fill-amber-400" />
+                    </div>
+                    <p className="text-sm text-gray-600 italic">
+                      "Bob did a great job fixing our sink. He was professional, arrived on time, and cleaned up 
+                      after the work was done. Very satisfied with the service!"
+                    </p>
+                    <div className="text-xs text-gray-500 mt-2">
+                      - John Smith, Apartment 4B
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default DemoVideoContent;
