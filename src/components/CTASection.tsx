@@ -94,7 +94,7 @@ const CTASection = () => {
                   
                   <div className="mb-6">
                     <div className="flex items-baseline">
-                      <span className="text-4xl font-bold">$0</span>
+                      <span className="text-4xl font-bold">Free</span>
                     </div>
                     <p className="text-gray-500 text-sm mt-1">up to 5 units</p>
                   </div>
