@@ -1,6 +1,8 @@
+
 import { useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, CheckCircle } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const CTASection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -61,14 +63,16 @@ const CTASection = () => {
               </div>
               
               <div>
-                <Button className="rounded-full py-6 px-8 text-base bg-primary hover:bg-primary/90 transition-all shadow-md hover:shadow-lg group">
-                  Start Your Free Trial
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                <Button className="rounded-full py-6 px-8 text-base bg-primary hover:bg-primary/90 transition-all shadow-md hover:shadow-lg group" asChild>
+                  <Link to="/signup">
+                    Start Your Free Trial
+                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  </Link>
                 </Button>
               </div>
             </div>
             
-            {/* Right side: Image/Illustration */}
+            {/* Right side: Free Plan Card */}
             <div className="relative bg-gradient-to-br from-blue-50 to-gray-50">
               <div className="absolute inset-0 overflow-hidden">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-radial from-blue-100 to-transparent opacity-80 transform translate-x-1/3 -translate-y-1/3"></div>
@@ -76,28 +80,27 @@ const CTASection = () => {
               </div>
               
               <div className="relative h-full flex items-center justify-center p-8">
-                {/* Pricing card */}
+                {/* Free plan card */}
                 <div className="bg-white rounded-2xl shadow-glass p-8 max-w-sm w-full">
                   <div className="flex justify-between items-start mb-6">
                     <div>
-                      <h3 className="text-xl font-bold mb-1">Pro Plan</h3>
-                      <p className="text-gray-500 text-sm">Perfect for property managers</p>
+                      <h3 className="text-xl font-bold mb-1">Starter Plan</h3>
+                      <p className="text-gray-500 text-sm">Perfect for small landlords</p>
                     </div>
-                    <div className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-medium">
-                      Popular
+                    <div className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-medium">
+                      Free
                     </div>
                   </div>
                   
                   <div className="mb-6">
                     <div className="flex items-baseline">
-                      <span className="text-4xl font-bold">$99</span>
-                      <span className="text-gray-500 ml-1">/month</span>
+                      <span className="text-4xl font-bold">$0</span>
                     </div>
-                    <p className="text-gray-500 text-sm mt-1">per property, billed annually</p>
+                    <p className="text-gray-500 text-sm mt-1">up to 5 units</p>
                   </div>
                   
                   <div className="space-y-3 mb-8">
-                    {planFeatures.map((feature, i) => (
+                    {starterFeatures.map((feature, i) => (
                       <div key={i} className="flex items-start space-x-3">
                         <CheckCircle size={16} className="text-green-500 flex-shrink-0 mt-0.5" />
                         <span className="text-gray-700 text-sm">{feature}</span>
@@ -105,8 +108,10 @@ const CTASection = () => {
                     ))}
                   </div>
                   
-                  <Button className="w-full rounded-full py-5">
-                    Get Started
+                  <Button className="w-full rounded-full py-5" asChild>
+                    <Link to="/signup">
+                      Start with Starter
+                    </Link>
                   </Button>
                 </div>
               </div>
@@ -125,14 +130,12 @@ const benefits = [
   "Comprehensive analytics and reporting on all maintenance activities"
 ];
 
-const planFeatures = [
+const starterFeatures = [
+  "Up to 5 units",
   "Unlimited maintenance requests",
-  "Automated bid collection",
-  "Contractor management",
-  "Tenant communication portal",
-  "Scheduling automation",
-  "Analytics dashboard",
-  "Email & phone support"
+  "Automated contractor bidding",
+  "Basic reporting",
+  "Email support"
 ];
 
 export default CTASection;
