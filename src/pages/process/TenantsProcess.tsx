@@ -214,7 +214,7 @@ const TenantsProcess = () => {
               With m<span className="text-white font-bold">AI</span>ntenants, I had a plumber scheduled within hours!"
               <footer className="mt-2 font-medium">— Sarah T., Apartment Resident</footer>
             </blockquote>
-            <Button variant="outline" className="text-white border-white hover:bg-white/10" asChild>
+            <Button variant="outline" className="bg-blue-500 text-white border-white hover:bg-blue-600" asChild>
               <Link to="/testimonials">Read More Stories</Link>
             </Button>
           </div>
