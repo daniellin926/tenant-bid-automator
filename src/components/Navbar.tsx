@@ -1,8 +1,15 @@
+
 import { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { Link } from 'react-router-dom';
+import { useIsMobile } from '@/hooks/use-mobile';
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -17,6 +24,7 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isVideoOpen, setIsVideoOpen] = useState(false);
+  const isMobile = useIsMobile();
   
   useEffect(() => {
     const handleScroll = () => {
@@ -36,7 +44,7 @@ const Navbar = () => {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 md:px-12 py-4",
         isScrolled 
-          ? "bg-white/80 backdrop-blur-md shadow-subtle" 
+          ? "bg-white/95 backdrop-blur-md shadow-subtle" 
           : "bg-transparent"
       )}
     >
@@ -172,40 +180,60 @@ const Navbar = () => {
           </div>
         </div>
         
-        {/* Mobile menu button */}
+        {/* Mobile menu */}
         <div className="md:hidden">
-          <Button 
-            variant="ghost" 
-            size="icon" 
-            aria-label="Menu"
-            onClick={toggleMobileMenu}
-            className="text-gray-700"
-          >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </Button>
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                aria-label="Menu"
+                className="text-gray-700"
+              >
+                <Menu size={24} />
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="pt-10 w-full max-w-full sm:max-w-sm">
+              <div className="flex flex-col items-start justify-start h-full space-y-6 p-0">
+                <div className="w-full">
+                  <MobileNavItem href="/features" label="Features">
+                    <div className="space-y-3 mt-2 pl-4">
+                      <MobileNavSubItem href="/features" label="All Features" />
+                      <MobileNavSubItem href="/features/request-system" label="Request System" />
+                      <MobileNavSubItem href="/features/bidding" label="Bidding" />
+                      <MobileNavSubItem href="/features/scheduling" label="Scheduling" />
+                      <MobileNavSubItem href="/features/communication" label="Communication" />
+                    </div>
+                  </MobileNavItem>
+                </div>
+                
+                <div className="w-full">
+                  <MobileNavItem href="#" label="How It Works">
+                    <div className="space-y-3 mt-2 pl-4">
+                      <MobileNavSubItem href="/process/tenants" label="For Tenants" />
+                      <MobileNavSubItem href="/process/landlords" label="For Landlords" />
+                    </div>
+                  </MobileNavItem>
+                </div>
+                
+                <div className="w-full">
+                  <MobileNavItem href="/pricing/landlords" label="Pricing" />
+                </div>
+                
+                <div className="w-full mt-auto pt-6 border-t space-y-4">
+                  <Button variant="outline" className="w-full rounded-full py-6" asChild>
+                    <Link to="/login">Log In</Link>
+                  </Button>
+                  <Button className="w-full rounded-full py-6 bg-primary hover:bg-primary/90" asChild>
+                    <Link to="/signup">Get Started</Link>
+                  </Button>
+                </div>
+              </div>
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
       
-      {/* Mobile menu */}
-      {isMobileMenuOpen && (
-        <div className="fixed inset-0 top-16 bg-white z-40 animate-fade-in">
-          <div className="flex flex-col items-center justify-center h-full space-y-8 p-6">
-            <MobileNavLink href="/features" onClick={toggleMobileMenu}>Features</MobileNavLink>
-            <MobileNavLink href="/process/tenants" onClick={toggleMobileMenu}>How It Works</MobileNavLink>
-            <MobileNavLink href="/pricing/landlords" onClick={toggleMobileMenu}>Pricing</MobileNavLink>
-            
-            <div className="flex flex-col w-full space-y-4 pt-4">
-              <Button variant="outline" className="rounded-full py-6" asChild>
-                <Link to="/login" onClick={toggleMobileMenu}>Log In</Link>
-              </Button>
-              <Button className="rounded-full py-6 bg-primary hover:bg-primary/90" asChild>
-                <Link to="/signup" onClick={toggleMobileMenu}>Get Started</Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      )}
-
       {/* Video Dialog */}
       {isVideoOpen && (
         <div className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4 animate-fade-in">
@@ -243,19 +271,58 @@ const NavLink = ({ href, isScrolled, children }: NavLinkProps) => (
   </a>
 );
 
-interface MobileNavLinkProps {
+interface MobileNavItemProps {
   href: string;
-  onClick: () => void;
-  children: React.ReactNode;
+  label: string;
+  children?: React.ReactNode;
 }
 
-const MobileNavLink = ({ href, onClick, children }: MobileNavLinkProps) => (
+const MobileNavItem = ({ href, label, children }: MobileNavItemProps) => {
+  const [isOpen, setIsOpen] = useState(false);
+  
+  return (
+    <div className="w-full border-b pb-3">
+      <div className="flex items-center justify-between py-3 px-1">
+        <Link 
+          to={href} 
+          className="text-lg font-medium text-gray-800 hover:text-primary transition-colors"
+          onClick={children ? (e) => {
+            e.preventDefault();
+            setIsOpen(!isOpen);
+          } : undefined}
+        >
+          {label}
+        </Link>
+        {children && (
+          <Button 
+            variant="ghost" 
+            size="icon"
+            onClick={() => setIsOpen(!isOpen)}
+            className="h-8 w-8"
+          >
+            <ChevronDown className={cn(
+              "h-4 w-4 transition-transform",
+              isOpen ? "rotate-180" : ""
+            )} />
+          </Button>
+        )}
+      </div>
+      {isOpen && children}
+    </div>
+  );
+};
+
+interface MobileNavSubItemProps {
+  href: string;
+  label: string;
+}
+
+const MobileNavSubItem = ({ href, label }: MobileNavSubItemProps) => (
   <Link 
     to={href} 
-    onClick={onClick}
-    className="text-xl font-medium py-2 w-full text-center text-gray-800 hover:text-primary transition-colors"
+    className="block text-base text-gray-600 hover:text-primary transition-colors py-2"
   >
-    {children}
+    {label}
   </Link>
 );
 
