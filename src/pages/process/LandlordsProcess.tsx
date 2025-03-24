@@ -1,4 +1,3 @@
-
 import { ArrowRight, Bell, MessageSquare, ListCheck, DollarSign, Play } from 'lucide-react';
 import PageTemplate from '@/components/PageTemplate';
 import { Button } from '@/components/ui/button';
@@ -70,7 +69,6 @@ const LandlordsProcess = () => {
         </div>
       </div>
       
-      {/* Interactive Demo Section */}
       <div className="bg-white rounded-xl shadow-md overflow-hidden mb-16">
         <div className="p-4 md:p-6">
           <h2 className="text-xl md:text-2xl font-semibold mb-2 md:mb-4">Interactive Demo: Experience The Landlord Journey</h2>
@@ -187,7 +185,7 @@ const LandlordsProcess = () => {
               With mAIntenants, it's all automated. My phone only buzzes when I need to approve something!"
               <footer className="mt-2 font-medium">— Michael R., Property Owner</footer>
             </blockquote>
-            <Button variant="outline" className="text-white border-white hover:bg-white/10" asChild>
+            <Button variant="outline" className="bg-blue-500 text-white border-white hover:bg-blue-600" asChild>
               <Link to="/testimonials">Read More Stories</Link>
             </Button>
           </div>
