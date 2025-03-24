@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -63,7 +62,6 @@ const Navbar = () => {
           </Link>
         </div>
         
-        {/* Desktop navigation with dropdowns */}
         <div className="hidden md:flex items-center space-x-8">
           <NavigationMenu>
             <NavigationMenuList>
@@ -180,7 +178,6 @@ const Navbar = () => {
           </div>
         </div>
         
-        {/* Mobile menu */}
         <div className="md:hidden">
           <Sheet>
             <SheetTrigger asChild>
@@ -196,15 +193,12 @@ const Navbar = () => {
             <SheetContent side="right" className="pt-10 w-full max-w-full sm:max-w-sm">
               <div className="flex flex-col items-start justify-start h-full space-y-6 p-0">
                 <div className="w-full">
-                  <MobileNavItem href="/features" label="Features">
-                    <div className="space-y-3 mt-2 pl-4">
-                      <MobileNavSubItem href="/features" label="All Features" />
-                      <MobileNavSubItem href="/features/request-system" label="Request System" />
-                      <MobileNavSubItem href="/features/bidding" label="Bidding" />
-                      <MobileNavSubItem href="/features/scheduling" label="Scheduling" />
-                      <MobileNavSubItem href="/features/communication" label="Communication" />
-                    </div>
-                  </MobileNavItem>
+                  <Link 
+                    to="/features" 
+                    className="block w-full text-lg font-medium text-gray-800 hover:text-primary transition-colors py-3 px-1 border-b pb-3"
+                  >
+                    Features
+                  </Link>
                 </div>
                 
                 <div className="w-full">
@@ -234,7 +228,6 @@ const Navbar = () => {
         </div>
       </div>
       
-      {/* Video Dialog */}
       {isVideoOpen && (
         <div className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4 animate-fade-in">
           <div className="relative w-full max-w-5xl aspect-video bg-black rounded-lg overflow-hidden">
