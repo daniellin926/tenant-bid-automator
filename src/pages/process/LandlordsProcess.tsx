@@ -72,9 +72,9 @@ const LandlordsProcess = () => {
       
       {/* Interactive Demo Section */}
       <div className="bg-white rounded-xl shadow-md overflow-hidden mb-16">
-        <div className="p-6">
-          <h2 className="text-2xl font-semibold mb-4">Interactive Demo: Experience The Landlord Journey</h2>
-          <p className="text-gray-600 mb-6">
+        <div className="p-4 md:p-6">
+          <h2 className="text-xl md:text-2xl font-semibold mb-2 md:mb-4">Interactive Demo: Experience The Landlord Journey</h2>
+          <p className="text-sm md:text-base text-gray-600 mb-4 md:mb-6">
             Walk through the entire maintenance request process from a landlord's perspective. 
             See how easy it is to manage maintenance requests, approve bids, and process payments.
           </p>
@@ -86,15 +86,15 @@ const LandlordsProcess = () => {
                 size="lg" 
                 className="flex items-center gap-2"
               >
-                <Play className="h-5 w-5" />
+                <Play className="h-4 w-4 md:h-5 md:w-5" />
                 Start Interactive Demo
               </Button>
             </div>
           ) : (
-            <div className="space-y-6">
+            <div className="space-y-4 md:space-y-6">
               <Card className="border-none shadow-none">
                 <CardContent className="p-0">
-                  <div className="bg-gray-50 rounded-lg h-[600px] overflow-hidden relative">
+                  <div className="bg-gray-50 rounded-lg h-[300px] sm:h-[400px] md:h-[500px] overflow-hidden relative">
                     <VideoPlayer 
                       playing={demoPlaying} 
                       currentStep={currentStep} 
@@ -102,12 +102,12 @@ const LandlordsProcess = () => {
                       onPrevious={handlePreviousStep}
                     />
                     
-                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 flex justify-between items-center">
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-2 md:p-4 flex justify-between items-center">
                       <div className="flex gap-1">
                         {[1, 2, 3, 4, 5].map((step) => (
                           <div 
                             key={step} 
-                            className={`w-2.5 h-2.5 rounded-full ${
+                            className={`w-2 h-2 md:w-2.5 md:h-2.5 rounded-full ${
                               currentStep >= step ? 'bg-primary' : 'bg-white/50'
                             }`}
                           />
@@ -118,15 +118,15 @@ const LandlordsProcess = () => {
                 </CardContent>
               </Card>
               
-              <div className="bg-gray-50 rounded-lg p-4">
-                <h3 className="font-medium mb-2">
+              <div className="bg-gray-50 rounded-lg p-3 md:p-4">
+                <h3 className="text-sm md:text-base font-medium mb-1 md:mb-2">
                   {currentStep === 1 && "Step 1: Review Maintenance Request"}
                   {currentStep === 2 && "Step 2: Approve the Request"}
                   {currentStep === 3 && "Step 3: Select Contractor Bid"}
                   {currentStep === 4 && "Step 4: Confirm Scheduled Appointment"}
                   {currentStep === 5 && "Step 5: Approve Payment After Completion"}
                 </h3>
-                <p className="text-gray-600 text-sm">
+                <p className="text-xs md:text-sm text-gray-600">
                   {currentStep === 1 && "You'll receive instant notifications when tenants submit maintenance requests. Review all details including images and urgency level."}
                   {currentStep === 2 && "Quickly approve appropriate requests or request more information if needed. Our AI helps prioritize requests based on urgency."}
                   {currentStep === 3 && "View multiple bids from qualified contractors with transparent pricing, availability dates, and reviews. Select the best option for your property."}
